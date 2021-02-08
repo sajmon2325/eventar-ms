@@ -1,8 +1,10 @@
 package com.opensourcedev.eventar.model;
 
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.*;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 public class Event extends BasicInformation{
@@ -24,16 +26,24 @@ public class Event extends BasicInformation{
     @PositiveOrZero
     private Integer eventOccupation;
 
+    @OneToMany(mappedBy = "event")
+    private List<EventTicket>  tickets;
+
 
     public Event() {
     }
 
-    public Event(String eventName, String location, LocalDateTime time, Integer eventCapacity, Integer eventOccupation) {
+
+
+    public Event(@NotBlank @Size(min = 10, max = 50) String eventName, @NotBlank @Size(min = 10, max = 20) String location,
+                 @FutureOrPresent LocalDateTime time, @Positive Integer eventCapacity, @PositiveOrZero Integer eventOccupation,
+                 List<EventTicket> tickets) {
         this.eventName = eventName;
         this.location = location;
         this.time = time;
         this.eventCapacity = eventCapacity;
         this.eventOccupation = eventOccupation;
+        this.tickets = tickets;
     }
 
 
@@ -77,6 +87,15 @@ public class Event extends BasicInformation{
         this.eventOccupation = eventOccupation;
     }
 
+    public List<EventTicket> getTickets() {
+        return tickets;
+    }
+
+    public void setTickets(List<EventTicket> tickets) {
+        this.tickets = tickets;
+    }
+
+
 
 
 
@@ -88,6 +107,7 @@ public class Event extends BasicInformation{
         private LocalDateTime time;
         private Integer eventCapacity;
         private Integer eventOccupation;
+        private List<EventTicket> tickets;
 
 
 
@@ -116,8 +136,13 @@ public class Event extends BasicInformation{
             return this;
         }
 
+        public EventBuilder tickets(List<EventTicket> tickets){
+            this.tickets = tickets;
+            return this;
+        }
+
         public Event build(){
-            return new Event(eventName, location, time, eventCapacity, eventOccupation);
+            return new Event(eventName, location, time, eventCapacity, eventOccupation, tickets);
         }
 
 
