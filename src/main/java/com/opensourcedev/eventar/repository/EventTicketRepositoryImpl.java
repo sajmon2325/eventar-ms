@@ -1,19 +1,17 @@
 package com.opensourcedev.eventar.repository;
 
 import com.opensourcedev.eventar.model.EventTicket;
-import org.springframework.stereotype.Repository;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.util.Optional;
 
-@Repository
 public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, String> {
 
+    @Autowired
     private EventTicketRepository eventTicketRepository;
 
 
-    public EventTicketRepositoryImpl(EventTicketRepository eventTicketRepository) {
-        this.eventTicketRepository = eventTicketRepository;
-    }
+    public EventTicketRepositoryImpl() {}
 
 
 

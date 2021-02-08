@@ -4,6 +4,7 @@ import org.hibernate.validator.constraints.Range;
 
 import javax.persistence.Entity;
 
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
@@ -32,18 +33,23 @@ public class EventTicket extends BasicInformation{
     @PositiveOrZero
     private BigDecimal ticketPrice;
 
+    @ManyToOne
+    private Event event;
+
     public EventTicket() {
     }
 
-    public EventTicket(String ticketName, String eventName, String name, String surname, Integer age, BigDecimal ticketPrice) {
+    public EventTicket(@NotBlank String ticketName, @NotBlank String eventName,
+                       @NotBlank @Size(min = 3, max = 20) String name, @NotBlank @Size(min = 3, max = 20) String surname,
+                       @Range(min = 6, max = 100) Integer age, @PositiveOrZero BigDecimal ticketPrice, Event event) {
         this.ticketName = ticketName;
         this.eventName = eventName;
         this.name = name;
         this.surname = surname;
         this.age = age;
         this.ticketPrice = ticketPrice;
+        this.event = event;
     }
-
 
     public String getTicketName() {
         return ticketName;
@@ -93,6 +99,14 @@ public class EventTicket extends BasicInformation{
         this.ticketPrice = ticketPrice;
     }
 
+    public Event getEvent() {
+        return event;
+    }
+
+    public void setEvent(Event event) {
+        this.event = event;
+    }
+
 
 
 
@@ -105,6 +119,7 @@ public class EventTicket extends BasicInformation{
         private String surname;
         private Integer age;
         private BigDecimal ticketPrice;
+        private Event event;
 
 
         public EventTicketBuilder ticketName(String ticketName){
@@ -137,9 +152,14 @@ public class EventTicket extends BasicInformation{
             return this;
         }
 
+        private EventTicketBuilder event(Event event){
+            this.event = event;
+            return this;
+        }
+
 
         public EventTicket build(){
-            return new EventTicket(ticketName, eventName, name, surname, age, ticketPrice);
+            return new EventTicket(ticketName, eventName, name, surname, age, ticketPrice, event);
         }
 
     }
