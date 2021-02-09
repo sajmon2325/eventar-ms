@@ -14,6 +14,9 @@ public class Event extends BasicInformation{
     private String eventName;
 
     @NotBlank
+    private String eventId;
+
+    @NotBlank
     @Size(min = 10, max = 20)
     private String location;
 
@@ -35,10 +38,11 @@ public class Event extends BasicInformation{
 
 
 
-    public Event(@NotBlank @Size(min = 10, max = 50) String eventName, @NotBlank @Size(min = 10, max = 20) String location,
+    public Event(@NotBlank @Size(min = 10, max = 50) String eventName, @NotBlank String eventId, @NotBlank @Size(min = 10, max = 20) String location,
                  @FutureOrPresent LocalDateTime time, @Positive Integer eventCapacity, @PositiveOrZero Integer eventOccupation,
                  List<EventTicket> tickets) {
         this.eventName = eventName;
+        this.eventId = eventId;
         this.location = location;
         this.time = time;
         this.eventCapacity = eventCapacity;
@@ -49,6 +53,14 @@ public class Event extends BasicInformation{
 
     public String getEventName() {
         return eventName;
+    }
+
+    public String getEventId() {
+        return eventId;
+    }
+
+    public void setEventId(String eventId) {
+        this.eventId = eventId;
     }
 
     public void setEventName(String eventName) {
@@ -103,6 +115,7 @@ public class Event extends BasicInformation{
     public static class EventBuilder{
 
         private String eventName;
+        private String eventId;
         private String location;
         private LocalDateTime time;
         private Integer eventCapacity;
@@ -113,6 +126,11 @@ public class Event extends BasicInformation{
 
         public EventBuilder name(String eventName){
             this.eventName = eventName;
+            return this;
+        }
+
+        public EventBuilder eventId(String eventId){
+            this.eventId = eventId;
             return this;
         }
 
@@ -142,7 +160,7 @@ public class Event extends BasicInformation{
         }
 
         public Event build(){
-            return new Event(eventName, location, time, eventCapacity, eventOccupation, tickets);
+            return new Event(eventName, eventId, location, time, eventCapacity, eventOccupation, tickets);
         }
 
 

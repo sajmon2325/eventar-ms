@@ -3,7 +3,9 @@ package com.opensourcedev.eventar.repository;
 import com.opensourcedev.eventar.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.HashSet;
 import java.util.Optional;
+import java.util.Set;
 
 public class EventRepositoryImpl implements CrudOperations<Event, String> {
 
@@ -15,36 +17,48 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
 
     @Override
     public Event save(Event event) {
-        return null;
+        if(event != null){
+            eventRepository.save(event);
+            return event;
+        }else {
+            // Todo: add log that event could not be saved
+            return new Event();
+        }
     }
 
     @Override
     public Optional<Event> findById(String id) {
-        return Optional.empty();
+        return eventRepository.findById(id);
     }
 
     @Override
     public boolean existsById(String id) {
-        return false;
+        return eventRepository.findById(id).isPresent();
     }
 
     @Override
     public Iterable<Event> findAll() {
-        return null;
+        Set<Event> events = new HashSet<>();
+        events.addAll(eventRepository.findAll());
+        return events;
     }
 
     @Override
     public long count() {
-        return 0;
+        return eventRepository.findAll().size();
     }
 
     @Override
     public void deleteById(String id) {
+        if (id != null && (eventRepository.findById(id).isPresent())){
+            eventRepository.deleteById(id);
+        }
+        //Todo return a log if event could not be deleted
 
     }
 
     @Override
     public void deleteAll() {
-
+        eventRepository.deleteAll();
     }
 }
