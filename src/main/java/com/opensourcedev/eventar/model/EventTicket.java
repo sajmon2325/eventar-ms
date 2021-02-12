@@ -14,7 +14,7 @@ import java.math.BigDecimal;
 public class EventTicket extends BasicInformation{
 
     @NotBlank
-    private String ticketName;      // should be used as public ticket ID - name of event + "ticket" suffix
+    private String ticketName;
 
     @NotBlank
     private String eventTicketId;

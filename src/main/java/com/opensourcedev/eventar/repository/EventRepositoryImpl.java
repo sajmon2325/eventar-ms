@@ -61,4 +61,7 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
     public void deleteAll() {
         eventRepository.deleteAll();
     }
+
+
+
 }
