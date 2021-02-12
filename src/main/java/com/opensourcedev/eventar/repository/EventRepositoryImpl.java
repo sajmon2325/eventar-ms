@@ -3,11 +3,12 @@ package com.opensourcedev.eventar.repository;
 import com.opensourcedev.eventar.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 
+
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
 
-public class EventRepositoryImpl implements CrudOperations<Event, String> {
+public class EventRepositoryImpl implements CrudOperations<Event, String>{
 
     @Autowired
     private EventRepository eventRepository;
@@ -61,7 +62,5 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
     public void deleteAll() {
         eventRepository.deleteAll();
     }
-
-
 
 }
