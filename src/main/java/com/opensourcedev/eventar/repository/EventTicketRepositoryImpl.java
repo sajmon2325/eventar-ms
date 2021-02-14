@@ -3,9 +3,8 @@ package com.opensourcedev.eventar.repository;
 import com.opensourcedev.eventar.model.EventTicket;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.math.BigDecimal;
+import java.util.*;
 
 public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, String> {
 
@@ -64,4 +63,21 @@ public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, St
     public void deleteAll() {
         eventTicketRepository.deleteAll();
     }
+
+
+
+    public List<EventTicket> findTicketsByHoldersName(String name){
+        return eventTicketRepository.findTicketsByticketHolderName(name);
+    }
+
+    public List<EventTicket> findTicketsByHoldersSurname(String surname){
+        return eventTicketRepository.findTicketsByHolderSurname(surname);
+    }
+
+    public List<EventTicket> findTicketsByPrice(BigDecimal price){
+        return eventTicketRepository.findTicketsByTicketPrice(price);
+    }
+
+
+
 }
