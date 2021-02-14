@@ -2,18 +2,23 @@ package com.opensourcedev.eventar.repository;
 
 import com.opensourcedev.eventar.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Sort;
+import org.springframework.stereotype.Service;
 
 
-import java.util.HashSet;
-import java.util.Optional;
-import java.util.Set;
+import java.time.LocalDateTime;
+import java.util.*;
 
-public class EventRepositoryImpl implements CrudOperations<Event, String>{
+@Service
+public class EventRepositoryImpl implements CrudOperations<Event, String> {
 
     @Autowired
     private EventRepository eventRepository;
 
+
+
     public EventRepositoryImpl() {}
+
 
 
     @Override
@@ -62,5 +67,25 @@ public class EventRepositoryImpl implements CrudOperations<Event, String>{
     public void deleteAll() {
         eventRepository.deleteAll();
     }
+
+
+
+    public Set<Event> findEventByName(String name){
+        return eventRepository.findByNameLike(name);
+    }
+
+    public List<Event> findEventByLocation(String location){
+        return eventRepository.findByLocation(location);
+    }
+
+    public List<Event> findEventByTime(LocalDateTime time){
+        return eventRepository.findByTime(time);
+    }
+
+    public List<Event> findEventByOccupation(){
+        return eventRepository.findByOccupation(Sort.by(Sort.Order.asc("eventOccupation")));
+    }
+
+
 
 }
