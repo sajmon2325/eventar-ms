@@ -14,7 +14,10 @@ import java.math.BigDecimal;
 public class EventTicket extends BasicInformation{
 
     @NotBlank
-    private String ticketName;      // should be used as public ticket ID - name of event + "ticket" suffix
+    private String ticketName;
+
+    @NotBlank
+    private String eventTicketId;
 
     @NotBlank
     private String eventName;
@@ -39,11 +42,12 @@ public class EventTicket extends BasicInformation{
     public EventTicket() {
     }
 
-    public EventTicket(@NotBlank String ticketName, @NotBlank String eventName,
+    public EventTicket(@NotBlank String ticketName, @NotBlank String eventName, @NotBlank String eventTicketId,
                        @NotBlank @Size(min = 3, max = 20) String name, @NotBlank @Size(min = 3, max = 20) String surname,
                        @Range(min = 6, max = 100) Integer age, @PositiveOrZero BigDecimal ticketPrice, Event event) {
         this.ticketName = ticketName;
         this.eventName = eventName;
+        this.eventTicketId = eventTicketId;
         this.name = name;
         this.surname = surname;
         this.age = age;
@@ -65,6 +69,14 @@ public class EventTicket extends BasicInformation{
 
     public void setEventName(String eventName) {
         this.eventName = eventName;
+    }
+
+    public String getEventTicketId() {
+        return eventTicketId;
+    }
+
+    public void setEventTicketId(String eventTicketId) {
+        this.eventTicketId = eventTicketId;
     }
 
     public String getName() {
@@ -115,6 +127,7 @@ public class EventTicket extends BasicInformation{
     public class EventTicketBuilder{
         private String ticketName;
         private String eventName;
+        private String eventTicketId;
         private String name;
         private String surname;
         private Integer age;
@@ -129,6 +142,11 @@ public class EventTicket extends BasicInformation{
 
         public EventTicketBuilder eventName(String eventName){
             this.eventName = eventName;
+            return this;
+        }
+
+        public EventTicketBuilder eventTicketId(String eventTicketId){
+            this.eventTicketId = eventTicketId;
             return this;
         }
 
@@ -159,7 +177,7 @@ public class EventTicket extends BasicInformation{
 
 
         public EventTicket build(){
-            return new EventTicket(ticketName, eventName, name, surname, age, ticketPrice, event);
+            return new EventTicket(ticketName, eventName, eventTicketId, name, surname, age, ticketPrice, event);
         }
 
     }
