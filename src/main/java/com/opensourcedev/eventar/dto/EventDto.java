@@ -1,48 +1,24 @@
-package com.opensourcedev.eventar.model;
+package com.opensourcedev.eventar.dto;
 
-
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.validation.constraints.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
-@Entity
-public class Event extends BasicInformation{
+public class EventDto extends BasicInformationDto{
 
-    @NotBlank
-    @Size(min = 10, max = 50)
     private String eventName;
-
-    @NotBlank
     private String eventId;
-
-    @NotBlank
-    @Size(min = 10, max = 20)
     private String location;
-
-    @FutureOrPresent
     private LocalDateTime time;
-
-    @Positive
     private Integer eventCapacity;
-
-    @PositiveOrZero
     private Integer eventOccupation;
+    private List<EventTicketDto> tickets;
 
-    @OneToMany(mappedBy = "event")
-    private List<EventTicket>  tickets;
+    public EventDto(){}
 
-
-    public Event() {
-    }
-
-
-    public Event(Timestamp createdAt, Timestamp updatedAt,
-                 @NotBlank @Size(min = 10, max = 50) String eventName, @NotBlank String eventId,
-                 @NotBlank @Size(min = 10, max = 20) String location, @FutureOrPresent LocalDateTime time,
-                 @Positive Integer eventCapacity, @PositiveOrZero Integer eventOccupation, List<EventTicket> tickets) {
+    public EventDto(Timestamp createdAt, Timestamp updatedAt,
+                    String eventName, String eventId, String location,
+                    LocalDateTime time, Integer eventCapacity, Integer eventOccupation, List<EventTicketDto> tickets) {
         super(createdAt, updatedAt);
         this.eventName = eventName;
         this.eventId = eventId;
@@ -53,10 +29,12 @@ public class Event extends BasicInformation{
         this.tickets = tickets;
     }
 
-
-
     public String getEventName() {
         return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     public String getEventId() {
@@ -65,10 +43,6 @@ public class Event extends BasicInformation{
 
     public void setEventId(String eventId) {
         this.eventId = eventId;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
     }
 
     public String getLocation() {
@@ -103,11 +77,11 @@ public class Event extends BasicInformation{
         this.eventOccupation = eventOccupation;
     }
 
-    public List<EventTicket> getTickets() {
+    public List<EventTicketDto> getTickets() {
         return tickets;
     }
 
-    public void setTickets(List<EventTicket> tickets) {
+    public void setTickets(List<EventTicketDto> tickets) {
         this.tickets = tickets;
     }
 
@@ -116,7 +90,8 @@ public class Event extends BasicInformation{
 
 
 
-    public static class EventBuilder extends BasicInformation{
+
+    public static class EventDtoBuilder extends BasicInformationDto{
 
         private Timestamp createdAt;
         private Timestamp updatedAt;
@@ -126,61 +101,60 @@ public class Event extends BasicInformation{
         private LocalDateTime time;
         private Integer eventCapacity;
         private Integer eventOccupation;
-        private List<EventTicket> tickets;
+        private List<EventTicketDto> tickets;
 
-
-        public EventBuilder createdAt(Timestamp createdAt){
+        public EventDtoBuilder createdAt(Timestamp createdAt){
             this.createdAt = createdAt;
             return this;
         }
 
-        public EventBuilder updatedAt(Timestamp updatedAt){
+        public EventDtoBuilder updatedAt(Timestamp updatedAt){
             this.updatedAt = updatedAt;
             return this;
         }
 
-        public EventBuilder name(String eventName){
+        public EventDtoBuilder eventName(String eventName){
             this.eventName = eventName;
             return this;
         }
 
-        public EventBuilder eventId(String eventId){
+        public EventDtoBuilder eventId(String eventId){
             this.eventId = eventId;
             return this;
         }
 
-        public EventBuilder location(String location){
+        public EventDtoBuilder location(String location){
             this.location = location;
             return this;
         }
 
-        public EventBuilder time(LocalDateTime time){
+        public EventDtoBuilder time(LocalDateTime time){
             this.time = time;
             return this;
         }
 
-        public EventBuilder eventCapacity(Integer eventCapacity){
+        public EventDtoBuilder eventCapacity(Integer eventCapacity){
             this.eventCapacity = eventCapacity;
             return this;
         }
 
-        public EventBuilder eventOccupation(Integer eventOccupation){
+        public EventDtoBuilder eventOccupation(Integer eventOccupation){
             this.eventOccupation = eventOccupation;
             return this;
         }
 
-        public EventBuilder tickets(List<EventTicket> tickets){
-            this.tickets = tickets;
+        public EventDtoBuilder tickets(List<EventTicketDto> tickets){
+            this.tickets  = tickets;
             return this;
         }
 
-        public Event build(){
-            return new Event(createdAt, updatedAt, eventName, eventId, location, time,
-                    eventCapacity, eventOccupation, tickets);
+        public EventDto build(){
+            return new EventDto(createdAt, updatedAt, eventName, eventId,
+                    location, time, eventCapacity,eventOccupation, tickets);
         }
 
-
     }
+
 
 
 }
