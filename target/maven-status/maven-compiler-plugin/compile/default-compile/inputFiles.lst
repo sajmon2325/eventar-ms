@@ -1,3 +1,5 @@
+D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\dto\BasicInformationDto.java
+D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\dto\EventDto.java
 D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\repository\EventRepositoryImpl.java
 D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\repository\EventTicketRepositoryImpl.java
 D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\model\BasicInformation.java
@@ -7,3 +9,4 @@ D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\EventarApplic
 D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\model\Event.java
 D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\model\EventTicket.java
 D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\repository\EventTicketRepository.java
+D:\Git Projects\eventar-ms\src\main\java\com\opensourcedev\eventar\dto\EventTicketDto.java

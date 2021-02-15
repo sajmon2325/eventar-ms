@@ -1,53 +1,28 @@
-package com.opensourcedev.eventar.model;
+package com.opensourcedev.eventar.dto;
 
-import org.hibernate.validator.constraints.Range;
+import com.opensourcedev.eventar.model.Event;
 
-import javax.persistence.Entity;
-
-import javax.persistence.ManyToOne;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.PositiveOrZero;
-import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
-@Entity
-public class EventTicket extends BasicInformation{
+public class EventTicketDto extends BasicInformationDto{
 
-    @NotBlank
     private String ticketName;
-
-    @NotBlank
     private String eventTicketId;
-
-    @NotBlank
     private String eventName;
-
-    @NotBlank
-    @Size(min = 3, max = 20)
     private String name;
-
-    @NotBlank
-    @Size(min = 3, max = 20)
     private String surname;
-
-    @Range(min = 6, max = 100)
     private Integer age;
-
-    @PositiveOrZero
     private BigDecimal ticketPrice;
-
-    @ManyToOne
     private Event event;
 
-    public EventTicket() {
-    }
 
-    public EventTicket(Timestamp createdAt, Timestamp updatedAt, @NotBlank String ticketName,
-                       @NotBlank String eventTicketId, @NotBlank String eventName,
-                       @NotBlank @Size(min = 3, max = 20) String name, @NotBlank @Size(min = 3, max = 20) String surname,
-                       @Range(min = 6, max = 100) Integer age, @PositiveOrZero BigDecimal ticketPrice, Event event) {
-        super( createdAt, updatedAt);
+    public EventTicketDto(){}
+
+    public EventTicketDto(Timestamp createdAt, Timestamp updatedAt, String ticketName,
+                          String eventTicketId, String eventName, String name, String surname,
+                          Integer age, BigDecimal ticketPrice, Event event) {
+        super(createdAt, updatedAt);
         this.ticketName = ticketName;
         this.eventTicketId = eventTicketId;
         this.eventName = eventName;
@@ -58,6 +33,7 @@ public class EventTicket extends BasicInformation{
         this.event = event;
     }
 
+
     public String getTicketName() {
         return ticketName;
     }
@@ -66,20 +42,20 @@ public class EventTicket extends BasicInformation{
         this.ticketName = ticketName;
     }
 
-    public String getEventName() {
-        return eventName;
-    }
-
-    public void setEventName(String eventName) {
-        this.eventName = eventName;
-    }
-
     public String getEventTicketId() {
         return eventTicketId;
     }
 
     public void setEventTicketId(String eventTicketId) {
         this.eventTicketId = eventTicketId;
+    }
+
+    public String getEventName() {
+        return eventName;
+    }
+
+    public void setEventName(String eventName) {
+        this.eventName = eventName;
     }
 
     public String getName() {
@@ -125,76 +101,75 @@ public class EventTicket extends BasicInformation{
 
 
 
-
-
-    public static class EventTicketBuilder{
+    public static class EventTicketDtoBuilder{
 
         private Timestamp createdAt;
         private Timestamp updatedAt;
         private String ticketName;
-        private String eventName;
         private String eventTicketId;
+        private String eventName;
         private String name;
         private String surname;
         private Integer age;
         private BigDecimal ticketPrice;
         private Event event;
 
-        public EventTicketBuilder createdAt(Timestamp createdAt){
+
+        public EventTicketDtoBuilder createdAt(Timestamp createdAt){
             this.createdAt = createdAt;
             return this;
         }
 
-        public EventTicketBuilder updatedAt(Timestamp updatedAt){
+        public EventTicketDtoBuilder updatedAt(Timestamp updatedAt){
             this.updatedAt = updatedAt;
             return this;
         }
 
-        public EventTicketBuilder ticketName(String ticketName){
+        public EventTicketDtoBuilder ticketName(String ticketName){
             this.ticketName = ticketName;
             return this;
         }
 
-        public EventTicketBuilder eventName(String eventName){
+        public EventTicketDtoBuilder eventName(String eventName){
             this.eventName = eventName;
             return this;
         }
 
-        public EventTicketBuilder eventTicketId(String eventTicketId){
+        public EventTicketDtoBuilder eventTicketId(String eventTicketId){
             this.eventTicketId = eventTicketId;
             return this;
         }
 
-        public EventTicketBuilder name(String name){
+        public EventTicketDtoBuilder name(String name){
             this.name = name;
             return this;
         }
 
-        public EventTicketBuilder surname(String surname){
+        public EventTicketDtoBuilder surname(String surname){
             this.surname = surname;
             return this;
         }
 
-        public EventTicketBuilder age(Integer age){
+        public EventTicketDtoBuilder age(Integer age){
             this.age = age;
             return this;
         }
 
-        public EventTicketBuilder ticketPrice(BigDecimal ticketPrice){
+        public EventTicketDtoBuilder ticketPrice(BigDecimal ticketPrice){
             this.ticketPrice = ticketPrice;
             return this;
         }
 
-        private EventTicketBuilder event(Event event){
+        private EventTicketDtoBuilder event(Event event){
             this.event = event;
             return this;
         }
 
 
-        public EventTicket build(){
-            return new EventTicket(createdAt, updatedAt, ticketName, eventName, eventTicketId,
+        public EventTicketDto build(){
+            return new EventTicketDto(createdAt, updatedAt, ticketName, eventName, eventTicketId,
                     name, surname, age, ticketPrice, event);
         }
-
     }
+
 }
