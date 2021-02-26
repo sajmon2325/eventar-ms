@@ -39,7 +39,7 @@ public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, St
     }
 
     @Override
-    public Iterable<EventTicket> findAll() {
+    public Set<EventTicket> findAll() {
         Set<EventTicket> eventTickets = new HashSet<>();
         eventTickets.addAll(eventTicketRepository.findAll());
         return eventTickets;

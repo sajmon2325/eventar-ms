@@ -43,7 +43,7 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
     }
 
     @Override
-    public Iterable<Event> findAll() {
+    public Set<Event> findAll() {
         Set<Event> events = new HashSet<>();
         events.addAll(eventRepository.findAll());
         return events;

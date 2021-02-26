@@ -114,9 +114,7 @@ public class Event extends BasicInformation{
 
 
 
-
-
-    public static class EventBuilder extends BasicInformation{
+    public static class EventBuilder extends BasicInformation {
 
         private Timestamp createdAt;
         private Timestamp updatedAt;
@@ -129,52 +127,52 @@ public class Event extends BasicInformation{
         private List<EventTicket> tickets;
 
 
-        public EventBuilder createdAt(Timestamp createdAt){
+        public EventBuilder createdAt(Timestamp createdAt) {
             this.createdAt = createdAt;
             return this;
         }
 
-        public EventBuilder updatedAt(Timestamp updatedAt){
+        public EventBuilder updatedAt(Timestamp updatedAt) {
             this.updatedAt = updatedAt;
             return this;
         }
 
-        public EventBuilder name(String eventName){
+        public EventBuilder eventName(String eventName) {
             this.eventName = eventName;
             return this;
         }
 
-        public EventBuilder eventId(String eventId){
+        public EventBuilder eventId(String eventId) {
             this.eventId = eventId;
             return this;
         }
 
-        public EventBuilder location(String location){
+        public EventBuilder location(String location) {
             this.location = location;
             return this;
         }
 
-        public EventBuilder time(LocalDateTime time){
+        public EventBuilder time(LocalDateTime time) {
             this.time = time;
             return this;
         }
 
-        public EventBuilder eventCapacity(Integer eventCapacity){
+        public EventBuilder eventCapacity(Integer eventCapacity) {
             this.eventCapacity = eventCapacity;
             return this;
         }
 
-        public EventBuilder eventOccupation(Integer eventOccupation){
+        public EventBuilder eventOccupation(Integer eventOccupation) {
             this.eventOccupation = eventOccupation;
             return this;
         }
 
-        public EventBuilder tickets(List<EventTicket> tickets){
+        public EventBuilder tickets(List<EventTicket> tickets) {
             this.tickets = tickets;
             return this;
         }
 
-        public Event build(){
+        public Event build() {
             return new Event(createdAt, updatedAt, eventName, eventId, location, time,
                     eventCapacity, eventOccupation, tickets);
         }
