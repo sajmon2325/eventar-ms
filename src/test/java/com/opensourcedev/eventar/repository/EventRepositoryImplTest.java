@@ -12,10 +12,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -57,7 +54,7 @@ class EventRepositoryImplTest {
                                             .eventName("Hackaton")
                                             .eventId("SomeId")
                                             .location("Hroncova 20/19")
-                                            .time(LocalDateTime.now())
+                                            .time(LocalDateTime.of(2020,2,27,20,3))
                                             .eventCapacity(35)
                                             .eventOccupation(30)
                                             .tickets(tickets)
@@ -196,13 +193,20 @@ class EventRepositoryImplTest {
 
         System.out.println("Starting test assertions for findEventByName() method....");
 
-        Set<Event> event = Set.of(testEvent);
-        //Set<Event> testSet = eventRepository.findByNameLike(testEvent.getEventName());
+        String name = "";
+        Set<Event> event = new HashSet<>(eventRepository.findByNameLike("SomeId")); // contains one object of type Event with String .name() method
 
+
+        for (Event e : event){
+            name = e.getEventName();
+            System.out.println("eventName: " + name + "\n");
+            assertEquals(name, testEvent.getEventName());
+        }
 
         assertAll(() ->{
             assertNotNull(eventRepository.findByNameLike(testEvent.getEventName()));
             assertEquals(event.size(), eventRepository.findByNameLike(testEvent.getEventName()).size());
+            verify(eventRepository, times(3)).findByNameLike(anyString());
         });
 
         System.out.println("Testing of findEventByName() method finished \n");
@@ -211,13 +215,27 @@ class EventRepositoryImplTest {
 
     @Test
     void findEventByLocation() {
-    }
 
-    @Test
-    void findEventByTime() {
-    }
+        when(eventRepository.findByLocation(anyString())).thenReturn( List.of(testEvent));
 
-    @Test
-    void findEventByOccupation() {
+        System.out.println("Starting test assertions for findEventByLocation() method....");
+
+        String location = "";
+
+        List<Event> events = new ArrayList<>(eventRepository.findByLocation("Hroncova 20/19"));
+
+        for (Event e : events){
+            location = e.getLocation();
+            System.out.println("location: " + location + "\n");
+            assertEquals(location, testEvent.getLocation());
+        }
+
+        assertAll(() -> {
+            assertNotNull(eventRepository.findByLocation(testEvent.getLocation()));
+            assertEquals(events.size(), eventRepository.findByLocation(testEvent.getLocation()).size());
+            verify(eventRepository, times(3)).findByLocation("Hroncova 20/19");
+        });
+
     }
+    
 }
