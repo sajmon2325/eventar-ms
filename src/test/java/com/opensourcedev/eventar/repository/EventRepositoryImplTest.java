@@ -83,7 +83,7 @@ class EventRepositoryImplTest {
 
         Event resultEvent = eventRepository.save(testEvent);
 
-        System.out.println("Starting test assertions for save() method....");
+        System.out.println("Starting test assertions for Event save() method....");
 
         assertAll(() -> {
             assertNotNull(testEvent);
@@ -92,7 +92,7 @@ class EventRepositoryImplTest {
         });
 
 
-        System.out.println("Testing of save() method finished \n");
+        System.out.println("Testing of Event save() method finished \n");
     }
 
     @Test
@@ -100,7 +100,7 @@ class EventRepositoryImplTest {
 
         when(eventRepository.findById(anyString())).thenReturn(Optional.of(testEvent));
 
-        System.out.println("Starting test assertions for findById() method....");
+        System.out.println("Starting test assertions for Event findById() method....");
 
         Optional<Event> result = eventRepository.findById("SomeId");
 
@@ -112,7 +112,7 @@ class EventRepositoryImplTest {
         });
 
 
-        System.out.println("Testing of findById() method finished \n");
+        System.out.println("Testing of Event findById() method finished \n");
 
     }
 
@@ -121,7 +121,7 @@ class EventRepositoryImplTest {
 
         when(eventRepository.existsById(anyString())).thenReturn(true);
 
-        System.out.println("Starting test assertions for existsById() method....");
+        System.out.println("Starting test assertions for Event existsById() method....");
 
         var result = eventRepository.existsById("SomeId");
 
@@ -132,9 +132,7 @@ class EventRepositoryImplTest {
             verify(eventRepository, times(2)).existsById("SomeId");
         });
 
-
-        System.out.println("Testing of existsById() method finished \n");
-
+        System.out.println("Testing of Event existsById() method finished \n");
 
     }
 
@@ -144,7 +142,7 @@ class EventRepositoryImplTest {
 
         when(eventRepository.findAll()).thenReturn(List.of(testEvent));
 
-        System.out.println("Starting test assertions for findAll() method....");
+        System.out.println("Starting test assertions for Event findAll() method....");
 
         var testEventsList = eventRepository.findAll();
 
@@ -155,9 +153,7 @@ class EventRepositoryImplTest {
             assertTrue(testEventsList.contains(testEvent));
         });
 
-
-
-        System.out.println("Testing of findAll() method finished \n");
+        System.out.println("Testing of Event findAll() method finished \n");
 
     }
 
@@ -168,7 +164,7 @@ class EventRepositoryImplTest {
 
         when(eventRepository.count()).thenReturn(testValue);
 
-        System.out.println("Starting test assertions for count() method....");
+        System.out.println("Starting test assertions for Event count() method....");
 
         var count = eventRepository.count();
 
@@ -176,25 +172,21 @@ class EventRepositoryImplTest {
             assertNotNull(count);
             assertEquals(count, eventRepository.count());
             verify(eventRepository, times(2)).count();
-
         });
 
         System.out.println("Testing of count() method finished \n");
 
     }
 
-
-
-
     @Test
     void findEventByName() {
 
         when(eventRepository.findByNameLike(anyString())).thenReturn(Set.of(testEvent));
 
-        System.out.println("Starting test assertions for findEventByName() method....");
+        System.out.println("Starting test assertions for Event findEventByName() method....");
 
         String name = "";
-        Set<Event> event = new HashSet<>(eventRepository.findByNameLike("SomeId")); // contains one object of type Event with String .name() method
+        Set<Event> event = new HashSet<>(eventRepository.findByNameLike("SomeId"));
 
 
         for (Event e : event){
@@ -209,7 +201,7 @@ class EventRepositoryImplTest {
             verify(eventRepository, times(3)).findByNameLike(anyString());
         });
 
-        System.out.println("Testing of findEventByName() method finished \n");
+        System.out.println("Testing of Event findEventByName() method finished \n");
 
     }
 
@@ -237,5 +229,5 @@ class EventRepositoryImplTest {
         });
 
     }
-    
+
 }
