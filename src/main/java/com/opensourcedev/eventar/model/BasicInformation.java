@@ -39,6 +39,11 @@ public class BasicInformation {
     public BasicInformation() {
     }
 
+    public BasicInformation(String privateEventId, Timestamp createdAt, Timestamp updatedAt) {
+        this.privateEventId = privateEventId;
+        this.createdAt = createdAt;
+        this.updatedAt = updatedAt;
+    }
 
 
 
