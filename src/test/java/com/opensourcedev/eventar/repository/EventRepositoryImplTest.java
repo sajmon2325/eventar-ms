@@ -1,5 +1,7 @@
 package com.opensourcedev.eventar.repository;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.opensourcedev.eventar.model.Event;
 import com.opensourcedev.eventar.model.EventTicket;
 import org.junit.jupiter.api.*;
@@ -228,6 +230,20 @@ class EventRepositoryImplTest {
             verify(eventRepository, times(3)).findByLocation("Hroncova 20/19");
         });
 
+    }
+
+    @Test
+    void showEventAsJson() throws JsonProcessingException {
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String eventAsJson = objectMapper.writeValueAsString(testEvent);
+        System.out.println("Event serialized to Json \n" + eventAsJson + "\n\n");
+
+        String eventTicketAsJson = objectMapper.writeValueAsString(eventTicket);
+        System.out.println("EventTicket serialized as Json \n" + eventTicketAsJson + "\n\n");
+
+        assertNotNull(eventAsJson);
+        assertNotNull(eventTicketAsJson);
     }
 
 }

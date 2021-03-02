@@ -63,4 +63,5 @@ class BasicInformationMapperImplTest {
             assertEquals(basicInformation.getUpdatedAt(), basicInformationMapper.basicInformationDtoToBasicInformation(basicInformationDto).getUpdatedAt());
         });
     }
+
 }
