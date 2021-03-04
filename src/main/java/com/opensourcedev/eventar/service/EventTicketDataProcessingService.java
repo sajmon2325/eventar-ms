@@ -9,12 +9,12 @@ import org.springframework.web.context.WebApplicationContext;
 
 @Service
 @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class EventTicketProcessingService {
+public class EventTicketDataProcessingService {
 
     private EventTicketRepositoryImpl eventTicketRepository;
 
     @Autowired
-    public EventTicketProcessingService(EventTicketRepositoryImpl eventTicketRepository) {
+    public EventTicketDataProcessingService(EventTicketRepositoryImpl eventTicketRepository) {
         this.eventTicketRepository = eventTicketRepository;
     }
 
