@@ -21,7 +21,7 @@ import java.util.Set;
 @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class EventDataProcessingService {
 
-    private EventRepositoryImpl eventRepository;
+    private final EventRepositoryImpl eventRepository;
 
     //TODO add AOP to check connection and add logs before and after the transaction happens
     //TODO create custom exceptions and throw them when something - happens  than catch those exceptions in advice methods
