@@ -1,7 +1,7 @@
 package com.opensourcedev.eventar.service;
 
-import com.opensourcedev.eventar.model.Event;
-import com.opensourcedev.eventar.repository.EventRepositoryImpl;
+import com.opensourcedev.eventar.model.EventTicket;
+import com.opensourcedev.eventar.repository.EventTicketRepositoryImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
@@ -11,90 +11,77 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.context.WebApplicationContext;
 
-import java.time.LocalDateTime;
-import java.util.ArrayList;
+import java.math.BigDecimal;
 import java.util.List;
 import java.util.Set;
 
-
 @Service
 @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
-public class EventDataProcessingService {
+public class EventTicketDataProcessingService {
 
-    private final EventRepositoryImpl eventRepository;
+    private EventTicketRepositoryImpl eventTicketRepository;
 
     //TODO add AOP to check connection and add logs before and after the transaction happens
     //TODO create custom exceptions and throw them when something - happens  than catch those exceptions in advice methods
 
     @Autowired
-    public EventDataProcessingService(EventRepositoryImpl eventRepository) {
-        this.eventRepository = eventRepository;
+    public EventTicketDataProcessingService(EventTicketRepositoryImpl eventTicketRepository) {
+        this.eventTicketRepository = eventTicketRepository;
     }
 
 
-
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
-    public Event findEventById(String id){
-        return eventRepository.findById(id).orElse(new Event());
+    public EventTicket findEventTicketById(String id){
+        return eventTicketRepository.findById(id).orElse(new EventTicket());
     }
 
     @Transactional(readOnly = true, propagation = Propagation.NEVER, isolation = Isolation.REPEATABLE_READ)
-    public boolean existByEventId(String id){
-        return eventRepository.existsById(id);
+    public boolean existEventTicketById(String id){
+        return eventTicketRepository.existsById(id);
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
-    public Set<Event> findAllEvents(){
-        return eventRepository.findAll();
+    public Set<EventTicket> findAllEventTickets(){
+        return eventTicketRepository.findAll();
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
-    public long countEventsInDb(){
-        return eventRepository.count();
+    public long countAllEventTicketsInDb(){
+        return eventTicketRepository.count();
     }
 
-    @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
-    public void deleteByEventId(String id){
+    @Transactional(readOnly = true, propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
+    public void deleteByEventTicketId(String id){
         if ((id != null) && (!id.isBlank()) && (!id.isEmpty())){
-            eventRepository.deleteById(id);
+            eventTicketRepository.deleteById(id);
         }
         // TODO throw here a custom exception regarding empty ID
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
-    public void deletAllEvents(){
-        eventRepository.deleteAll();
+    public void deleteAllEventTickets(){
+        eventTicketRepository.deleteAll();
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
-    public Set<Event> findEventsByName(String name){
-        return eventRepository.findEventByName(name);
+    public List<EventTicket> findEventTicketByHoldersName(String name){
+        return eventTicketRepository.findTicketsByHoldersName(name);
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
-    public List<Event> findEventByLocation(String location){
-        return eventRepository.findEventByLocation(location);
+    public List<EventTicket> findEventTicketByHoldersSurName(String surname){
+        return eventTicketRepository.findTicketsByHoldersSurname(surname);
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
-    public List<Event> findEventsByLocation(LocalDateTime dateTime){
-       if (dateTime != null){
-           return eventRepository.findEventByTime(dateTime);
-       }else {
-           return new ArrayList<>();
-           //TODO handle empty or not valid date or throw exception
-       }
+    public List<EventTicket> findEventTicketByPrice(BigDecimal price){
+        return eventTicketRepository.findTicketsByPrice(price);
     }
 
-    @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
-    public List<Event> findEventsByOccupation(){
-        return eventRepository.findEventByOccupation();
-    }
 
-    
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
-    public Event saveEvent(Event event){
-        return eventRepository.save(event);
+    public EventTicket saveEventTicket(EventTicket eventTicket){
+        return eventTicketRepository.save(eventTicket);
     }
 
 }
