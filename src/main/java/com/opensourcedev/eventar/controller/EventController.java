@@ -29,6 +29,8 @@ public class EventController {
     private final EventMapper eventMapper = Mappers.getMapper(EventMapper.class);
     private final EventDataProcessingService eventDataProcessingService;
     private static final String BASE_URL = "http://localhost:8080/event/";
+    HttpHeaders responseHeader;
+    List<EventDto> eventDtos;
 
 
     public EventController(EventDataProcessingService eventDataProcessingService) {
@@ -67,7 +69,7 @@ public class EventController {
 
 
     @ResponseStatus(HttpStatus.OK)
-    @DeleteMapping(value = "/eventCount")
+    @GetMapping(value = "/eventCount", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity countEventsInDb(){
         return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON)
                 .body(eventDataProcessingService.countEventsInDb());
@@ -75,20 +77,20 @@ public class EventController {
 
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @GetMapping(value = "/deleteById/{id}")
+    @DeleteMapping(value = "/deleteById/{id}")
     public ResponseEntity deleteEventById(@PathVariable String id){
         eventDataProcessingService.deleteByEventId(id);
-        HttpHeaders responseHeader = new HttpHeaders();
+        responseHeader = new HttpHeaders();
         responseHeader.add("Event-Custom-Header", "Deleted event with id: " + id);
         return ResponseEntity.noContent().headers(responseHeader).build();
     }
 
 
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping(value = "/deleteAll")
+    @DeleteMapping(value = "/deleteAllEvents")
     public ResponseEntity deleteAllEvents(){
         eventDataProcessingService.deletAllEvents();
-        HttpHeaders responseHeader = new HttpHeaders();
+        responseHeader = new HttpHeaders();
         responseHeader.add("Event-Custom-Header", "All Event have been deleted from database");
         return ResponseEntity.noContent().headers(responseHeader).build();
     }
@@ -110,7 +112,7 @@ public class EventController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/findByLocation/{location}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<EventDto>> findEventsByCommonLocation(@PathVariable String location){
-        List<EventDto> eventDtos = new ArrayList<>();
+        eventDtos = new ArrayList<>();
         eventDataProcessingService.findEventByLocation(location).forEach(event -> {
             EventDto eventDto = eventMapper.eventToEventDto(event);
             eventDtos.add(eventDto);
@@ -122,7 +124,7 @@ public class EventController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/findByTime/{time}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<EventDto>> findEventsByCommonTime(@PathVariable LocalDateTime time){
-        List<EventDto> eventDtos = new ArrayList<>();
+        eventDtos = new ArrayList<>();
         eventDataProcessingService.findEventsByTime(time).forEach(event -> {
             EventDto eventDto = eventMapper.eventToEventDto(event);
             eventDtos.add(eventDto);
@@ -135,7 +137,7 @@ public class EventController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/findByTime", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<EventDto>> findEventsByOccupation(){
-        List<EventDto> eventDtos = new ArrayList<>();
+        eventDtos = new ArrayList<>();
         eventDataProcessingService.findEventsByOccupation().forEach(event -> {
             EventDto eventDto = eventMapper.eventToEventDto(event);
             eventDtos.add(eventDto);
