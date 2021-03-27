@@ -77,7 +77,7 @@ public class EventDataProcessingService {
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
-    public List<Event> findEventsByLocation(LocalDateTime dateTime){
+    public List<Event> findEventsByTime(LocalDateTime dateTime){
        if (dateTime != null){
            return eventRepository.findEventByTime(dateTime);
        }else {
