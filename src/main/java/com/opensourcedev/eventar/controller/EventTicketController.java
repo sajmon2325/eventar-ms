@@ -1,8 +1,7 @@
 package com.opensourcedev.eventar.controller;
 
-import com.opensourcedev.eventar.dto.EventDto;
 import com.opensourcedev.eventar.dto.EventTicketDto;
-import com.opensourcedev.eventar.exceptions.EventTicketNotFoundException;
+import com.opensourcedev.eventar.exceptions.webLayer.EventTicketNotFoundException;
 import com.opensourcedev.eventar.mappers.EventTicketMapper;
 import com.opensourcedev.eventar.model.EventTicket;
 import com.opensourcedev.eventar.service.EventTicketDataProcessingService;

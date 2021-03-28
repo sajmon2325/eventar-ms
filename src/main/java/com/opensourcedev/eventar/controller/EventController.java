@@ -1,7 +1,7 @@
 package com.opensourcedev.eventar.controller;
 
 import com.opensourcedev.eventar.dto.EventDto;
-import com.opensourcedev.eventar.exceptions.EventNotFoundException;
+import com.opensourcedev.eventar.exceptions.webLayer.EventNotFoundException;
 import com.opensourcedev.eventar.mappers.EventMapper;
 import com.opensourcedev.eventar.model.Event;
 import com.opensourcedev.eventar.service.EventDataProcessingService;
