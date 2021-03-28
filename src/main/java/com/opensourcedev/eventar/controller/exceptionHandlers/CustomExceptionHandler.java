@@ -1,7 +1,7 @@
 package com.opensourcedev.eventar.controller.exceptionHandlers;
 
-import com.opensourcedev.eventar.exceptions.EventNotFoundException;
-import com.opensourcedev.eventar.exceptions.EventTicketNotFoundException;
+import com.opensourcedev.eventar.exceptions.webLayer.EventNotFoundException;
+import com.opensourcedev.eventar.exceptions.webLayer.EventTicketNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
