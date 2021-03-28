@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class EventTicketServiceException extends RuntimeException {
 
-    Timestamp timestamp;
-    Map<String, String> details;
+    private Timestamp timestamp;
+    private Map<String, String> details;
 
 
     public EventTicketServiceException(String message, Throwable cause, Timestamp timestamp, Map<String, String> details) {

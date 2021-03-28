@@ -5,8 +5,8 @@ import java.util.Map;
 
 public class EventServiceException extends RuntimeException {
 
-    Timestamp timestamp;
-    Map<String, String> details;
+    private Timestamp timestamp;
+    private Map<String, String> details;
 
 
     public EventServiceException(String message, Throwable cause, Timestamp timestamp, Map<String, String> details) {

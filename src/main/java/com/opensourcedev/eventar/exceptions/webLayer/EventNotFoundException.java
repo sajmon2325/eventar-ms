@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class EventNotFoundException extends RuntimeException {
 
-    Timestamp timestamp;
+    private Timestamp timestamp;
 
 
     public EventNotFoundException(String message, Throwable cause, Timestamp timestamp) {

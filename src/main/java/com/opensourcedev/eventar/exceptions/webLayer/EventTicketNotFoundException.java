@@ -4,7 +4,7 @@ import java.sql.Timestamp;
 
 public class EventTicketNotFoundException extends RuntimeException {
 
-    Timestamp timestamp;
+    private Timestamp timestamp;
 
     public EventTicketNotFoundException(String message, Throwable cause, Timestamp timestamp) {
         super(message, cause);

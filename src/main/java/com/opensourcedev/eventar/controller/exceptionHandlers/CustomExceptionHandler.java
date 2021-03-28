@@ -14,7 +14,7 @@ import java.util.Map;
 @ControllerAdvice
 public class CustomExceptionHandler {
 
-    Map<String, Object> details;
+    private Map<String, Object> details;
 
     @ExceptionHandler(EventNotFoundException.class)
     public ResponseEntity<Object> handleEventNotFoundException(EventNotFoundException eventNotFound, WebRequest request){
