@@ -2,6 +2,7 @@ package com.opensourcedev.eventar.controller;
 
 import com.opensourcedev.eventar.dto.EventDto;
 import com.opensourcedev.eventar.dto.EventTicketDto;
+import com.opensourcedev.eventar.exceptions.EventTicketNotFoundException;
 import com.opensourcedev.eventar.mappers.EventTicketMapper;
 import com.opensourcedev.eventar.model.EventTicket;
 import com.opensourcedev.eventar.service.EventTicketDataProcessingService;
@@ -16,6 +17,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
 import java.net.URI;
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -134,13 +137,19 @@ public class EventTicketController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> persistEventTicket(@RequestBody @Validated EventTicketDto eventTicketDto, BindingResult result){
+    public ResponseEntity<String> persistEventTicket(@RequestBody @Validated EventTicketDto eventTicketDto, BindingResult result) {
+
         EventTicket convertedEventTicket = eventTicketMapper.eventTicketDtoToEvent(eventTicketDto);
         EventTicket savedEventTicket = eventTicketDataProcessingService.saveEventTicket(convertedEventTicket);
 
+        if (result.hasErrors()){
+            throw new EventTicketNotFoundException("There was an error during validation of event ticket dto with name: "
+                    + eventTicketDto.getEventName(), Timestamp.valueOf(LocalDateTime.now()));       //TODO move this to AOP
+        }else {
+            return ResponseEntity.created(URI.create(BASE_URL + "/save/" + savedEventTicket.getEventTicketId()))
+                    .body("Event Ticket has been saved");
+        }
 
-        return ResponseEntity.created(URI.create(BASE_URL + "/save/" + savedEventTicket.getEventTicketId()))
-                .body("Event Ticket has been saved");
     }
 
 }

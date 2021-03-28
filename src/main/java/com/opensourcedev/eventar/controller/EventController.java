@@ -1,6 +1,7 @@
 package com.opensourcedev.eventar.controller;
 
 import com.opensourcedev.eventar.dto.EventDto;
+import com.opensourcedev.eventar.exceptions.EventNotFoundException;
 import com.opensourcedev.eventar.mappers.EventMapper;
 import com.opensourcedev.eventar.model.Event;
 import com.opensourcedev.eventar.service.EventDataProcessingService;
@@ -14,6 +15,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.URI;
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -24,7 +26,6 @@ import java.util.Set;
 @RequestMapping({"/event"})
 public class EventController {
 
-    //TODO implement handling of dto being null and custom exception catched by AOP
 
     private final EventMapper eventMapper = Mappers.getMapper(EventMapper.class);
     private final EventDataProcessingService eventDataProcessingService;
@@ -154,9 +155,14 @@ public class EventController {
         Event convertedEvent = eventMapper.eventDtoToEvent(eventDto);
         Event savedEvent = eventDataProcessingService.saveEvent(convertedEvent);
 
+        if (result.hasErrors()){
+            throw new EventNotFoundException("There was an error during validation of event dto with name: "
+                    + eventDto.getEventName(), Timestamp.valueOf(LocalDateTime.now()));     //TODO move this to AOP
+        }else {
+            return ResponseEntity.created(URI.create(BASE_URL + "/save/" + savedEvent.getEventId()))
+                    .body("Event has been saved");
+        }
 
-        return ResponseEntity.created(URI.create(BASE_URL + "/save/" + savedEvent.getEventId()))
-                .body("Event has been saved");
     }
 
 
