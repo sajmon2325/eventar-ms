@@ -9,7 +9,6 @@ import org.springframework.stereotype.Repository;
 import java.time.LocalDateTime;
 import java.util.*;
 
-@Repository
 public class EventRepositoryImpl implements CrudOperations<Event, String> {
 
     @Autowired

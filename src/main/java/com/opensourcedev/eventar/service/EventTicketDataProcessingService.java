@@ -19,15 +19,16 @@ import java.util.Set;
 @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class EventTicketDataProcessingService {
 
-    private EventTicketRepositoryImpl eventTicketRepository;
+    private final EventTicketRepositoryImpl eventTicketRepository;
 
     //TODO add AOP to check connection and add logs before and after the transaction happens
     //TODO create custom exceptions and throw them when something - happens  than catch those exceptions in advice methods
 
-    @Autowired
+
     public EventTicketDataProcessingService(EventTicketRepositoryImpl eventTicketRepository) {
         this.eventTicketRepository = eventTicketRepository;
     }
+
 
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)

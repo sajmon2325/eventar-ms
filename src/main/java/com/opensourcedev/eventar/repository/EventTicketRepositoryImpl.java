@@ -2,12 +2,10 @@ package com.opensourcedev.eventar.repository;
 
 import com.opensourcedev.eventar.model.EventTicket;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 
 import java.math.BigDecimal;
 import java.util.*;
 
-@Repository
 public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, String> {
 
     @Autowired
