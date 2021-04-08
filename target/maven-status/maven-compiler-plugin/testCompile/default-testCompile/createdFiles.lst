@@ -1,0 +1,6 @@
+com\opensourcedev\eventar\controller\EventControllerTest.class
+com\opensourcedev\eventar\mappers\BasicInformationMapperImplTest.class
+com\opensourcedev\eventar\controller\EventTicketControllerTest.class
+com\opensourcedev\eventar\EventarApplicationTests.class
+com\opensourcedev\eventar\repository\EventRepositoryImplTest.class
+com\opensourcedev\eventar\repository\EventTicketRepositoryImplTest.class

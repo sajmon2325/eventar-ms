@@ -10,15 +10,14 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.test.web.servlet.MockMvc;
-import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
-import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
+
+import static org.hamcrest.Matchers.*;
 
 
 import java.math.BigDecimal;
@@ -35,7 +34,6 @@ import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
 import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
-import static org.springframework.test.web.servlet.result.RequestResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
 @WebMvcTest(controllers = EventController.class)
@@ -64,7 +62,6 @@ class EventControllerTest {
     @BeforeEach
     void setUp() {
         System.out.println("Calling the setUp() method from EventControllerTest.class ....");
-        //eventMapper = Mappers.getMapper(EventMapper.class);
         tickets = new ArrayList<>();
 
         testEventTicket = new EventTicket.EventTicketBuilder().ticketName("Hackaton Ticket")
@@ -92,6 +89,10 @@ class EventControllerTest {
 
     @AfterEach
     void tearDown() {
+
+        System.out.println("Calling the tearDown() method from EventControllerTest.class ....");
+
+
         eventDataProcessingService = null;
         mockMvc = null;
         eventMapper = null;
@@ -160,8 +161,7 @@ class EventControllerTest {
         this.mockMvc.perform(get(baseUrl + "/findAll"))
                 .andExpect(status().isOk())
                 .andExpect(content().contentType(MediaType.APPLICATION_JSON))
-                /*.andExpect(jsonPath("$.[3]").isNotEmpty())
-                .andExpect(jsonPath("$.[2]").value("Hackaton"))*/
+                .andExpect(content().string(containsString("\"eventName\":\"Hackaton\"")))
                 .andDo(print());
 
 
@@ -172,12 +172,44 @@ class EventControllerTest {
     }
 
     @Test
-    void countEventsInDb() {
+    void countEventsInDb() throws Exception {
+
+        System.out.println("Starting test assertions for EventController countEventsInDb() method....");
+
+        when(eventDataProcessingService.countEventsInDb()).thenReturn(15L);
+
+        this.mockMvc.perform(get(baseUrl + "/eventCount"))
+                .andExpect(status().isOk())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(content().string(containsString("15")))
+                .andDo(print());
+
+        assertAll(() ->{
+            verify(eventDataProcessingService, times(1)).countEventsInDb();
+        });
     }
 
 
 
-    @Test
-    void persistEvent() {
-    }
+    /*@Test
+    void persistEvent() throws Exception {
+
+        System.out.println("Starting test assertions for EventController persistEvent() method....");
+
+        when(eventDataProcessingService.saveEvent(testEvent)).thenReturn(testEvent);
+
+        ObjectMapper objectMapper = new ObjectMapper();
+        String json = objectMapper.writeValueAsString(testEvent);
+        System.out.println(json);
+
+        this.mockMvc.perform(post(baseUrl + "/save").contentType(MediaType.APPLICATION_JSON)
+                .content(json)
+                .accept(MediaType.APPLICATION_JSON))
+                .andDo(print())
+                .andExpect(content().contentType(MediaType.APPLICATION_JSON))
+                .andExpect(status().isCreated())
+                .andExpect(content().string(containsString("\"eventName\":\"Hackaton\"")));
+
+    }*/
+
 }
