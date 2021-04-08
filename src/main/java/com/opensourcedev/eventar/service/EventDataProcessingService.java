@@ -26,7 +26,7 @@ public class EventDataProcessingService {
     //TODO add AOP to check connection and add logs before and after the transaction happens
     //TODO create custom exceptions and throw them when something - happens  than catch those exceptions in advice methods
 
-    @Autowired
+
     public EventDataProcessingService(EventRepositoryImpl eventRepository) {
         this.eventRepository = eventRepository;
     }

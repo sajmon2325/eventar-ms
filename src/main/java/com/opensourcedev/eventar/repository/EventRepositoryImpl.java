@@ -3,13 +3,11 @@ package com.opensourcedev.eventar.repository;
 import com.opensourcedev.eventar.model.Event;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
-import org.springframework.stereotype.Repository;
 
 
 import java.time.LocalDateTime;
 import java.util.*;
 
-@Repository
 public class EventRepositoryImpl implements CrudOperations<Event, String> {
 
     @Autowired

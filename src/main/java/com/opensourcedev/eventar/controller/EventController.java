@@ -150,17 +150,18 @@ public class EventController {
 
 
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> persistEvent(@RequestBody @Validated EventDto eventDto, BindingResult result) {
+    @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<String> persistEvent( @Validated @RequestBody EventDto eventDto, BindingResult result) {
         Event convertedEvent = eventMapper.eventDtoToEvent(eventDto);
         Event savedEvent = eventDataProcessingService.saveEvent(convertedEvent);
 
-        if (result.hasErrors()){
+        if (!result.hasErrors()){
+            return ResponseEntity.created(URI.create(BASE_URL + "/save/" + savedEvent.getEventId()))
+                    .contentType(MediaType.APPLICATION_JSON)
+                    .body("Event has been saved");
+        }else {
             throw new EventNotFoundException("There was an error during validation of event dto with name: "
                     + eventDto.getEventName(), Timestamp.valueOf(LocalDateTime.now()));     //TODO move this to AOP
-        }else {
-            return ResponseEntity.created(URI.create(BASE_URL + "/save/" + savedEvent.getEventId()))
-                    .body("Event has been saved");
         }
 
     }

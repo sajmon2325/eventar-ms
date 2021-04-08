@@ -1,0 +1,4 @@
+# Created at 2021-04-08T18:45:14.397
+Boot Manifest-JAR contains absolute paths in classpath 'D:\Git Projects\eventar-ms\target\test-classes'
+Hint: <argLine>-Djdk.net.URLClassPath.disableClassPathURLCheck=true</argLine>
+

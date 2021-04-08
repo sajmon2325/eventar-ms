@@ -1,0 +1,290 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.opensourcedev.eventar.controller.EventControllerTest" time="2.748" tests="4" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="sun.desktop" value="windows"/>
+    <property name="awt.toolkit" value="sun.awt.windows.WToolkit"/>
+    <property name="java.specification.version" value="11"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1250"/>
+    <property name="java.class.path" value="D:\Git Projects\eventar-ms\target\test-classes;D:\Git Projects\eventar-ms\target\classes;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\2.4.2\spring-boot-starter-data-jpa-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-aop\2.4.2\spring-boot-starter-aop-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-aop\5.3.3\spring-aop-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.4.2\spring-boot-starter-jdbc-2.4.2.jar;C:\Users\sajmo\.m2\repository\com\zaxxer\HikariCP\3.4.5\HikariCP-3.4.5.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-jdbc\5.3.3\spring-jdbc-5.3.3.jar;C:\Users\sajmo\.m2\repository\jakarta\transaction\jakarta.transaction-api\1.3.3\jakarta.transaction-api-1.3.3.jar;C:\Users\sajmo\.m2\repository\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar;C:\Users\sajmo\.m2\repository\org\hibernate\hibernate-core\5.4.27.Final\hibernate-core-5.4.27.Final.jar;C:\Users\sajmo\.m2\repository\org\jboss\logging\jboss-logging\3.4.1.Final\jboss-logging-3.4.1.Final.jar;C:\Users\sajmo\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar;C:\Users\sajmo\.m2\repository\net\bytebuddy\byte-buddy\1.10.19\byte-buddy-1.10.19.jar;C:\Users\sajmo\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\sajmo\.m2\repository\org\jboss\jandex\2.1.3.Final\jandex-2.1.3.Final.jar;C:\Users\sajmo\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;C:\Users\sajmo\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\sajmo\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.3\jaxb-runtime-2.3.3.jar;C:\Users\sajmo\.m2\repository\org\glassfish\jaxb\txw2\2.3.3\txw2-2.3.3.jar;C:\Users\sajmo\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.11\istack-commons-runtime-3.0.11.jar;C:\Users\sajmo\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\data\spring-data-jpa\2.4.3\spring-data-jpa-2.4.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\data\spring-data-commons\2.4.3\spring-data-commons-2.4.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-orm\5.3.3\spring-orm-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-context\5.3.3\spring-context-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-tx\5.3.3\spring-tx-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-beans\5.3.3\spring-beans-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-aspects\5.3.3\spring-aspects-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.4.2\spring-boot-starter-web-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter\2.4.2\spring-boot-starter-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot\2.4.2\spring-boot-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.4.2\spring-boot-autoconfigure-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.4.2\spring-boot-starter-logging-2.4.2.jar;C:\Users\sajmo\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\sajmo\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\sajmo\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.13.3\log4j-to-slf4j-2.13.3.jar;C:\Users\sajmo\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;C:\Users\sajmo\.m2\repository\org\slf4j\jul-to-slf4j\1.7.30\jul-to-slf4j-1.7.30.jar;C:\Users\sajmo\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\sajmo\.m2\repository\org\yaml\snakeyaml\1.27\snakeyaml-1.27.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.4.2\spring-boot-starter-json-2.4.2.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.11.4\jackson-databind-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.11.4\jackson-core-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.11.4\jackson-datatype-jdk8-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.11.4\jackson-datatype-jsr310-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.11.4\jackson-module-parameter-names-2.11.4.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.4.2\spring-boot-starter-tomcat-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.41\tomcat-embed-core-9.0.41.jar;C:\Users\sajmo\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.41\tomcat-embed-websocket-9.0.41.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-web\5.3.3\spring-web-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-webmvc\5.3.3\spring-webmvc-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-expression\5.3.3\spring-expression-5.3.3.jar;C:\Users\sajmo\.m2\repository\mysql\mysql-connector-java\8.0.22\mysql-connector-java-8.0.22.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-swagger2\2.9.2\springfox-swagger2-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\swagger\swagger-annotations\1.5.20\swagger-annotations-1.5.20.jar;C:\Users\sajmo\.m2\repository\io\swagger\swagger-models\1.5.20\swagger-models-1.5.20.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.11.4\jackson-annotations-2.11.4.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-spi\2.9.2\springfox-spi-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-core\2.9.2\springfox-core-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-schema\2.9.2\springfox-schema-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-swagger-common\2.9.2\springfox-swagger-common-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-spring-web\2.9.2\springfox-spring-web-2.9.2.jar;C:\Users\sajmo\.m2\repository\com\google\guava\guava\20.0\guava-20.0.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\sajmo\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\sajmo\.m2\repository\org\springframework\plugin\spring-plugin-core\1.2.0.RELEASE\spring-plugin-core-1.2.0.RELEASE.jar;C:\Users\sajmo\.m2\repository\org\springframework\plugin\spring-plugin-metadata\1.2.0.RELEASE\spring-plugin-metadata-1.2.0.RELEASE.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-swagger-ui\2.9.2\springfox-swagger-ui-2.9.2.jar;C:\Users\sajmo\.m2\repository\org\mapstruct\mapstruct\1.4.1.Final\mapstruct-1.4.1.Final.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-validation\2.4.2\spring-boot-starter-validation-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\glassfish\jakarta.el\3.0.3\jakarta.el-3.0.3.jar;C:\Users\sajmo\.m2\repository\org\hibernate\validator\hibernate-validator\6.1.7.Final\hibernate-validator-6.1.7.Final.jar;C:\Users\sajmo\.m2\repository\jakarta\validation\jakarta.validation-api\2.0.2\jakarta.validation-api-2.0.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-test\2.4.2\spring-boot-starter-test-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-test\2.4.2\spring-boot-test-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\2.4.2\spring-boot-test-autoconfigure-2.4.2.jar;C:\Users\sajmo\.m2\repository\com\jayway\jsonpath\json-path\2.4.0\json-path-2.4.0.jar;C:\Users\sajmo\.m2\repository\net\minidev\json-smart\2.3\json-smart-2.3.jar;C:\Users\sajmo\.m2\repository\net\minidev\accessors-smart\1.2\accessors-smart-1.2.jar;C:\Users\sajmo\.m2\repository\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar;C:\Users\sajmo\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\sajmo\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\sajmo\.m2\repository\org\assertj\assertj-core\3.18.1\assertj-core-3.18.1.jar;C:\Users\sajmo\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\sajmo\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\sajmo\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\sajmo\.m2\repository\org\mockito\mockito-core\3.6.28\mockito-core-3.6.28.jar;C:\Users\sajmo\.m2\repository\net\bytebuddy\byte-buddy-agent\1.10.19\byte-buddy-agent-1.10.19.jar;C:\Users\sajmo\.m2\repository\org\objenesis\objenesis\3.1\objenesis-3.1.jar;C:\Users\sajmo\.m2\repository\org\mockito\mockito-junit-jupiter\3.6.28\mockito-junit-jupiter-3.6.28.jar;C:\Users\sajmo\.m2\repository\org\skyscreamer\jsonassert\1.5.0\jsonassert-1.5.0.jar;C:\Users\sajmo\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-core\5.3.3\spring-core-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-jcl\5.3.3\spring-jcl-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-test\5.3.3\spring-test-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\xmlunit\xmlunit-core\2.7.0\xmlunit-core-2.7.0.jar;"/>
+    <property name="java.vm.vendor" value="JetBrains s.r.o."/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://openjdk.java.net/"/>
+    <property name="user.timezone" value="Europe/Prague"/>
+    <property name="java.vm.specification.version" value="11"/>
+    <property name="os.name" value="Windows 10"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="user.country" value="SK"/>
+    <property name="sun.boot.library.path" value="D:\IntelliJ IDEA 2019.3.4\jbr\bin"/>
+    <property name="sun.java.command" value="C:\Users\sajmo\AppData\Local\Temp\surefire16565589433364501055\surefirebooter3966838459968002957.jar C:\Users\sajmo\AppData\Local\Temp\surefire16565589433364501055 2021-04-08T18-45-09_882-jvmRun1 surefire11485231029980101006tmp surefire_013500038479835557121tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="surefire.test.class.path" value="D:\Git Projects\eventar-ms\target\test-classes;D:\Git Projects\eventar-ms\target\classes;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-data-jpa\2.4.2\spring-boot-starter-data-jpa-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-aop\2.4.2\spring-boot-starter-aop-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-aop\5.3.3\spring-aop-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\aspectj\aspectjweaver\1.9.6\aspectjweaver-1.9.6.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-jdbc\2.4.2\spring-boot-starter-jdbc-2.4.2.jar;C:\Users\sajmo\.m2\repository\com\zaxxer\HikariCP\3.4.5\HikariCP-3.4.5.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-jdbc\5.3.3\spring-jdbc-5.3.3.jar;C:\Users\sajmo\.m2\repository\jakarta\transaction\jakarta.transaction-api\1.3.3\jakarta.transaction-api-1.3.3.jar;C:\Users\sajmo\.m2\repository\jakarta\persistence\jakarta.persistence-api\2.2.3\jakarta.persistence-api-2.2.3.jar;C:\Users\sajmo\.m2\repository\org\hibernate\hibernate-core\5.4.27.Final\hibernate-core-5.4.27.Final.jar;C:\Users\sajmo\.m2\repository\org\jboss\logging\jboss-logging\3.4.1.Final\jboss-logging-3.4.1.Final.jar;C:\Users\sajmo\.m2\repository\org\javassist\javassist\3.27.0-GA\javassist-3.27.0-GA.jar;C:\Users\sajmo\.m2\repository\net\bytebuddy\byte-buddy\1.10.19\byte-buddy-1.10.19.jar;C:\Users\sajmo\.m2\repository\antlr\antlr\2.7.7\antlr-2.7.7.jar;C:\Users\sajmo\.m2\repository\org\jboss\jandex\2.1.3.Final\jandex-2.1.3.Final.jar;C:\Users\sajmo\.m2\repository\org\dom4j\dom4j\2.1.3\dom4j-2.1.3.jar;C:\Users\sajmo\.m2\repository\org\hibernate\common\hibernate-commons-annotations\5.1.2.Final\hibernate-commons-annotations-5.1.2.Final.jar;C:\Users\sajmo\.m2\repository\org\glassfish\jaxb\jaxb-runtime\2.3.3\jaxb-runtime-2.3.3.jar;C:\Users\sajmo\.m2\repository\org\glassfish\jaxb\txw2\2.3.3\txw2-2.3.3.jar;C:\Users\sajmo\.m2\repository\com\sun\istack\istack-commons-runtime\3.0.11\istack-commons-runtime-3.0.11.jar;C:\Users\sajmo\.m2\repository\com\sun\activation\jakarta.activation\1.2.2\jakarta.activation-1.2.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\data\spring-data-jpa\2.4.3\spring-data-jpa-2.4.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\data\spring-data-commons\2.4.3\spring-data-commons-2.4.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-orm\5.3.3\spring-orm-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-context\5.3.3\spring-context-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-tx\5.3.3\spring-tx-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-beans\5.3.3\spring-beans-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-aspects\5.3.3\spring-aspects-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-web\2.4.2\spring-boot-starter-web-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter\2.4.2\spring-boot-starter-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot\2.4.2\spring-boot-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-autoconfigure\2.4.2\spring-boot-autoconfigure-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-logging\2.4.2\spring-boot-starter-logging-2.4.2.jar;C:\Users\sajmo\.m2\repository\ch\qos\logback\logback-classic\1.2.3\logback-classic-1.2.3.jar;C:\Users\sajmo\.m2\repository\ch\qos\logback\logback-core\1.2.3\logback-core-1.2.3.jar;C:\Users\sajmo\.m2\repository\org\apache\logging\log4j\log4j-to-slf4j\2.13.3\log4j-to-slf4j-2.13.3.jar;C:\Users\sajmo\.m2\repository\org\apache\logging\log4j\log4j-api\2.13.3\log4j-api-2.13.3.jar;C:\Users\sajmo\.m2\repository\org\slf4j\jul-to-slf4j\1.7.30\jul-to-slf4j-1.7.30.jar;C:\Users\sajmo\.m2\repository\jakarta\annotation\jakarta.annotation-api\1.3.5\jakarta.annotation-api-1.3.5.jar;C:\Users\sajmo\.m2\repository\org\yaml\snakeyaml\1.27\snakeyaml-1.27.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-json\2.4.2\spring-boot-starter-json-2.4.2.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\core\jackson-databind\2.11.4\jackson-databind-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\core\jackson-core\2.11.4\jackson-core-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jdk8\2.11.4\jackson-datatype-jdk8-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\datatype\jackson-datatype-jsr310\2.11.4\jackson-datatype-jsr310-2.11.4.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\module\jackson-module-parameter-names\2.11.4\jackson-module-parameter-names-2.11.4.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-tomcat\2.4.2\spring-boot-starter-tomcat-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\apache\tomcat\embed\tomcat-embed-core\9.0.41\tomcat-embed-core-9.0.41.jar;C:\Users\sajmo\.m2\repository\org\apache\tomcat\embed\tomcat-embed-websocket\9.0.41\tomcat-embed-websocket-9.0.41.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-web\5.3.3\spring-web-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-webmvc\5.3.3\spring-webmvc-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-expression\5.3.3\spring-expression-5.3.3.jar;C:\Users\sajmo\.m2\repository\mysql\mysql-connector-java\8.0.22\mysql-connector-java-8.0.22.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-swagger2\2.9.2\springfox-swagger2-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\swagger\swagger-annotations\1.5.20\swagger-annotations-1.5.20.jar;C:\Users\sajmo\.m2\repository\io\swagger\swagger-models\1.5.20\swagger-models-1.5.20.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\jackson\core\jackson-annotations\2.11.4\jackson-annotations-2.11.4.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-spi\2.9.2\springfox-spi-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-core\2.9.2\springfox-core-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-schema\2.9.2\springfox-schema-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-swagger-common\2.9.2\springfox-swagger-common-2.9.2.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-spring-web\2.9.2\springfox-spring-web-2.9.2.jar;C:\Users\sajmo\.m2\repository\com\google\guava\guava\20.0\guava-20.0.jar;C:\Users\sajmo\.m2\repository\com\fasterxml\classmate\1.5.1\classmate-1.5.1.jar;C:\Users\sajmo\.m2\repository\org\slf4j\slf4j-api\1.7.30\slf4j-api-1.7.30.jar;C:\Users\sajmo\.m2\repository\org\springframework\plugin\spring-plugin-core\1.2.0.RELEASE\spring-plugin-core-1.2.0.RELEASE.jar;C:\Users\sajmo\.m2\repository\org\springframework\plugin\spring-plugin-metadata\1.2.0.RELEASE\spring-plugin-metadata-1.2.0.RELEASE.jar;C:\Users\sajmo\.m2\repository\io\springfox\springfox-swagger-ui\2.9.2\springfox-swagger-ui-2.9.2.jar;C:\Users\sajmo\.m2\repository\org\mapstruct\mapstruct\1.4.1.Final\mapstruct-1.4.1.Final.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-validation\2.4.2\spring-boot-starter-validation-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\glassfish\jakarta.el\3.0.3\jakarta.el-3.0.3.jar;C:\Users\sajmo\.m2\repository\org\hibernate\validator\hibernate-validator\6.1.7.Final\hibernate-validator-6.1.7.Final.jar;C:\Users\sajmo\.m2\repository\jakarta\validation\jakarta.validation-api\2.0.2\jakarta.validation-api-2.0.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-starter-test\2.4.2\spring-boot-starter-test-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-test\2.4.2\spring-boot-test-2.4.2.jar;C:\Users\sajmo\.m2\repository\org\springframework\boot\spring-boot-test-autoconfigure\2.4.2\spring-boot-test-autoconfigure-2.4.2.jar;C:\Users\sajmo\.m2\repository\com\jayway\jsonpath\json-path\2.4.0\json-path-2.4.0.jar;C:\Users\sajmo\.m2\repository\net\minidev\json-smart\2.3\json-smart-2.3.jar;C:\Users\sajmo\.m2\repository\net\minidev\accessors-smart\1.2\accessors-smart-1.2.jar;C:\Users\sajmo\.m2\repository\org\ow2\asm\asm\5.0.4\asm-5.0.4.jar;C:\Users\sajmo\.m2\repository\jakarta\xml\bind\jakarta.xml.bind-api\2.3.3\jakarta.xml.bind-api-2.3.3.jar;C:\Users\sajmo\.m2\repository\jakarta\activation\jakarta.activation-api\1.2.2\jakarta.activation-api-1.2.2.jar;C:\Users\sajmo\.m2\repository\org\assertj\assertj-core\3.18.1\assertj-core-3.18.1.jar;C:\Users\sajmo\.m2\repository\org\hamcrest\hamcrest\2.2\hamcrest-2.2.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter\5.7.0\junit-jupiter-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.7.0\junit-jupiter-api-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\sajmo\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\sajmo\.m2\repository\org\junit\platform\junit-platform-commons\1.7.0\junit-platform-commons-1.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter-params\5.7.0\junit-jupiter-params-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.7.0\junit-jupiter-engine-5.7.0.jar;C:\Users\sajmo\.m2\repository\org\junit\platform\junit-platform-engine\1.7.0\junit-platform-engine-1.7.0.jar;C:\Users\sajmo\.m2\repository\org\mockito\mockito-core\3.6.28\mockito-core-3.6.28.jar;C:\Users\sajmo\.m2\repository\net\bytebuddy\byte-buddy-agent\1.10.19\byte-buddy-agent-1.10.19.jar;C:\Users\sajmo\.m2\repository\org\objenesis\objenesis\3.1\objenesis-3.1.jar;C:\Users\sajmo\.m2\repository\org\mockito\mockito-junit-jupiter\3.6.28\mockito-junit-jupiter-3.6.28.jar;C:\Users\sajmo\.m2\repository\org\skyscreamer\jsonassert\1.5.0\jsonassert-1.5.0.jar;C:\Users\sajmo\.m2\repository\com\vaadin\external\google\android-json\0.0.20131108.vaadin1\android-json-0.0.20131108.vaadin1.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-core\5.3.3\spring-core-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-jcl\5.3.3\spring-jcl-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\springframework\spring-test\5.3.3\spring-test-5.3.3.jar;C:\Users\sajmo\.m2\repository\org\xmlunit\xmlunit-core\2.7.0\xmlunit-core-2.7.0.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\sajmo"/>
+    <property name="user.language" value="sk"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2021-01-19"/>
+    <property name="java.home" value="D:\IntelliJ IDEA 2019.3.4\jbr"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="D:\Git Projects\eventar-ms"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="FILE_LOG_CHARSET" value="windows-1250"/>
+    <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
+    <property name="java.awt.headless" value="true"/>
+    <property name="surefire.real.class.path" value="C:\Users\sajmo\AppData\Local\Temp\surefire16565589433364501055\surefirebooter3966838459968002957.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="11.0.10+9-b1341.35"/>
+    <property name="user.name" value="sajmo"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="Cp1250"/>
+    <property name="spring.beaninfo.ignore" value="true"/>
+    <property name="java.vm.name" value="Dynamic Code Evolution 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="JBR-11.0.10.9-1341.35-dcevm"/>
+    <property name="localRepository" value="C:\Users\sajmo\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
+    <property name="java.io.tmpdir" value="C:\Users\sajmo\AppData\Local\Temp\"/>
+    <property name="idea.version" value="2021.1"/>
+    <property name="java.version" value="11.0.10"/>
+    <property name="user.dir" value="D:\Git Projects\eventar-ms"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="PID" value="18044"/>
+    <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="CONSOLE_LOG_CHARSET" value="windows-1250"/>
+    <property name="java.library.path" value="D:\IntelliJ IDEA 2019.3.4\jbr\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\4.4\bin;D:\PostgreSQL\12\bin;D:\PostgreSQL\12\lib;;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Users\sajmo\AppData\Local\Microsoft\WindowsApps;D:\IntelliJ IDEA 2019.3.4\bin;C:\Program Files\MongoDB\Server\4.4\bin;D:\PostgreSQL\12\bin;D:\PostgreSQL\12\lib;C:\Users\sajmo\AppData\Local\gitkraken\bin;%USERPROFILE%\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.vm.info" value="mixed mode"/>
+    <property name="java.vendor" value="JetBrains s.r.o."/>
+    <property name="java.vm.version" value="11.0.10+9-b1341.35"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="55.0"/>
+  </properties>
+  <testcase name="existById" classname="com.opensourcedev.eventar.controller.EventControllerTest" time="0.204">
+    <system-out><![CDATA[18:45:15.541 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+18:45:15.551 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+18:45:15.591 [main] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [com.opensourcedev.eventar.controller.EventControllerTest] from class [org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper]
+18:45:15.602 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [com.opensourcedev.eventar.controller.EventControllerTest], using SpringBootContextLoader
+18:45:15.606 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.opensourcedev.eventar.controller.EventControllerTest]: class path resource [com/opensourcedev/eventar/controller/EventControllerTest-context.xml] does not exist
+18:45:15.606 [main] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [com.opensourcedev.eventar.controller.EventControllerTest]: class path resource [com/opensourcedev/eventar/controller/EventControllerTestContext.groovy] does not exist
+18:45:15.606 [main] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [com.opensourcedev.eventar.controller.EventControllerTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+18:45:15.607 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils - Could not detect default configuration classes for test class [com.opensourcedev.eventar.controller.EventControllerTest]: EventControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+18:45:15.679 [main] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [com.opensourcedev.eventar.controller.EventControllerTest]
+18:45:15.752 [main] DEBUG org.springframework.context.annotation.ClassPathScanningCandidateComponentProvider - Identified candidate component class: file [D:\Git Projects\eventar-ms\target\classes\com\opensourcedev\eventar\EventarApplication.class]
+18:45:15.753 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Found @SpringBootConfiguration com.opensourcedev.eventar.EventarApplication for test class com.opensourcedev.eventar.controller.EventControllerTest
+18:45:15.755 [main] DEBUG org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - @TestExecutionListeners is not present for class [com.opensourcedev.eventar.controller.EventControllerTest]: using defaults.
+18:45:15.756 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+18:45:15.771 [main] INFO org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.web.ServletTestExecutionListener@60975100, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@1253e7cb, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2d36e77e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@61c9c3fd, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@3b0c9195, org.springframework.test.context.support.DirtiesContextTestExecutionListener@366c4480, org.springframework.test.context.transaction.TransactionalTestExecutionListener@2c7b5824, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@302a07d, org.springframework.test.context.event.EventPublishingTestExecutionListener@5cdd09b1, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@8c11eee, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@7e8dcdaa, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@681a8b4e, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@5cbe877d, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@5c08c46a, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@4cf8b2dc]
+18:45:15.775 [main] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@2cc3ad05 testClass = EventControllerTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [WebMergedContextConfiguration@710b18a6 testClass = EventControllerTest, locations = '{}', classes = '{class com.opensourcedev.eventar.EventarApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}', contextCustomizers = set[[ImportsContextCustomizer@119020fb key = [org.springframework.boot.autoconfigure.cache.CacheAutoConfiguration, org.springframework.boot.autoconfigure.context.MessageSourceAutoConfiguration, org.springframework.boot.autoconfigure.data.web.SpringDataWebAutoConfiguration, org.springframework.boot.autoconfigure.freemarker.FreeMarkerAutoConfiguration, org.springframework.boot.autoconfigure.groovy.template.GroovyTemplateAutoConfiguration, org.springframework.boot.autoconfigure.gson.GsonAutoConfiguration, org.springframework.boot.autoconfigure.hateoas.HypermediaAutoConfiguration, org.springframework.boot.autoconfigure.http.HttpMessageConvertersAutoConfiguration, org.springframework.boot.autoconfigure.jackson.JacksonAutoConfiguration, org.springframework.boot.autoconfigure.jsonb.JsonbAutoConfiguration, org.springframework.boot.autoconfigure.mustache.MustacheAutoConfiguration, org.springframework.boot.autoconfigure.task.TaskExecutionAutoConfiguration, org.springframework.boot.autoconfigure.thymeleaf.ThymeleafAutoConfiguration, org.springframework.boot.autoconfigure.validation.ValidationAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.error.ErrorMvcAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.HttpEncodingAutoConfiguration, org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebClientAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcWebDriverAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.client.servlet.OAuth2ClientAutoConfiguration, org.springframework.boot.autoconfigure.security.oauth2.resource.servlet.OAuth2ResourceServerAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration, org.springframework.boot.autoconfigure.security.servlet.UserDetailsServiceAutoConfiguration, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcSecurityConfiguration]], org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@132e0cc, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@7a67e3c6, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@5edb1012, org.springframework.boot.test.autoconfigure.OverrideAutoConfigurationContextCustomizerFactory$DisableAutoConfigurationContextCustomizer@a4add54, org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@61fe30, org.springframework.boot.test.autoconfigure.filter.TypeExcludeFiltersContextCustomizer@c1af6e52, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@e3d28c1e, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@4b79ac84, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@0], resourceBasePath = 'src/main/webapp', contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+18:45:15.810 [main] DEBUG org.springframework.test.context.support.TestPropertySourceUtils - Adding inlined properties to environment: {spring.jmx.enabled=false, org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTestContextBootstrapper=true}
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.4.2)
+
+2021-04-08 18:45:16.176  INFO 18044 --- [           main] c.o.e.controller.EventControllerTest     : Starting EventControllerTest using Java 11.0.10 on DESKTOP-FJ83RN4 with PID 18044 (started by sajmo in D:\Git Projects\eventar-ms)
+2021-04-08 18:45:16.178  INFO 18044 --- [           main] c.o.e.controller.EventControllerTest     : No active profile set, falling back to default profiles: default
+2021-04-08 18:45:16.195 DEBUG 18044 --- [           main] o.s.w.c.s.GenericWebApplicationContext   : Refreshing org.springframework.web.context.support.GenericWebApplicationContext@19542407
+2021-04-08 18:45:17.581  INFO 18044 --- [           main] o.s.s.concurrent.ThreadPoolTaskExecutor  : Initializing ExecutorService 'applicationTaskExecutor'
+2021-04-08 18:45:17.600 DEBUG 18044 --- [           main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2021-04-08 18:45:17.703 DEBUG 18044 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : 13 mappings in 'requestMappingHandlerMapping'
+2021-04-08 18:45:17.764 DEBUG 18044 --- [           main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2021-04-08 18:45:17.781 DEBUG 18044 --- [           main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 1 @ExceptionHandler, 1 ResponseBodyAdvice
+2021-04-08 18:45:17.867  INFO 18044 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
+2021-04-08 18:45:17.867  INFO 18044 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
+2021-04-08 18:45:17.868  INFO 18044 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 1 ms
+2021-04-08 18:45:17.899  INFO 18044 --- [           main] c.o.e.controller.EventControllerTest     : Started EventControllerTest in 2.082 seconds (JVM running for 3.303)
+Calling the setUp() method from EventControllerTest.class ....
+Starting test assertions for EventController existById() method....
+2021-04-08 18:45:17.990 DEBUG 18044 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.opensourcedev.eventar.controller.EventController#existById(String)
+2021-04-08 18:45:18.055 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/json' in response
+2021-04-08 18:45:18.058 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [true]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /event/existById/someId
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.opensourcedev.eventar.controller.EventController
+           Method = com.opensourcedev.eventar.controller.EventController#existById(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = true
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Calling the tearDown() method from EventControllerTest.class ....
+]]></system-out>
+  </testcase>
+  <testcase name="findAllEvents" classname="com.opensourcedev.eventar.controller.EventControllerTest" time="0.07">
+    <system-out><![CDATA[Calling the setUp() method from EventControllerTest.class ....
+Starting test assertions for EventController findAllEvents() method....
+2021-04-08 18:45:18.118 DEBUG 18044 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.opensourcedev.eventar.controller.EventController#findAllEvents()
+2021-04-08 18:45:18.120 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/json' in response
+2021-04-08 18:45:18.124 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [[com.opensourcedev.eventar.dto.EventDto@b3857e2]]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /event/findAll
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.opensourcedev.eventar.controller.EventController
+           Method = com.opensourcedev.eventar.controller.EventController#findAllEvents()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = [{"createdAt":"2021-04-08T16:45:18.116+00:00","updatedAt":"2021-04-08T16:45:18.116+00:00","eventName":"Hackaton","eventId":"someId","location":"Hroncova 20/19","time":"2020-02-27T20:03:00","eventCapacity":35,"eventOccupation":30,"tickets":[{"createdAt":null,"updatedAt":null,"ticketName":"Hackaton Ticket","eventTicketId":"Hackaton","eventName":"EventTicketId","name":"Simon","surname":"Pavlik","age":18,"ticketPrice":20,"event":null}]}]
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Calling the tearDown() method from EventControllerTest.class ....
+]]></system-out>
+  </testcase>
+  <testcase name="findEventById" classname="com.opensourcedev.eventar.controller.EventControllerTest" time="0.029">
+    <system-out><![CDATA[Calling the setUp() method from EventControllerTest.class ....
+Starting test assertions for EventController findEventById() method....
+2021-04-08 18:45:18.190 DEBUG 18044 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.opensourcedev.eventar.controller.EventController#findEventById(String)
+2021-04-08 18:45:18.192 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/json' in response
+2021-04-08 18:45:18.192 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [com.opensourcedev.eventar.dto.EventDto@6136e1fc]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /event/findById/someId
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.opensourcedev.eventar.controller.EventController
+           Method = com.opensourcedev.eventar.controller.EventController#findEventById(String)
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = {"createdAt":"2021-04-08T16:45:18.188+00:00","updatedAt":"2021-04-08T16:45:18.188+00:00","eventName":"Hackaton","eventId":"someId","location":"Hroncova 20/19","time":"2020-02-27T20:03:00","eventCapacity":35,"eventOccupation":30,"tickets":[{"createdAt":null,"updatedAt":null,"ticketName":"Hackaton Ticket","eventTicketId":"Hackaton","eventName":"EventTicketId","name":"Simon","surname":"Pavlik","age":18,"ticketPrice":20,"event":null}]}
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Calling the tearDown() method from EventControllerTest.class ....
+]]></system-out>
+  </testcase>
+  <testcase name="countEventsInDb" classname="com.opensourcedev.eventar.controller.EventControllerTest" time="0.011">
+    <system-out><![CDATA[Calling the setUp() method from EventControllerTest.class ....
+Starting test assertions for EventController countEventsInDb() method....
+2021-04-08 18:45:18.220 DEBUG 18044 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to com.opensourcedev.eventar.controller.EventController#countEventsInDb()
+2021-04-08 18:45:18.221 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Found 'Content-Type:application/json' in response
+2021-04-08 18:45:18.222 DEBUG 18044 --- [           main] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [15]
+
+MockHttpServletRequest:
+      HTTP Method = GET
+      Request URI = /event/eventCount
+       Parameters = {}
+          Headers = []
+             Body = null
+    Session Attrs = {}
+
+Handler:
+             Type = com.opensourcedev.eventar.controller.EventController
+           Method = com.opensourcedev.eventar.controller.EventController#countEventsInDb()
+
+Async:
+    Async started = false
+     Async result = null
+
+Resolved Exception:
+             Type = null
+
+ModelAndView:
+        View name = null
+             View = null
+            Model = null
+
+FlashMap:
+       Attributes = null
+
+MockHttpServletResponse:
+           Status = 200
+    Error message = null
+          Headers = [Content-Type:"application/json"]
+     Content type = application/json
+             Body = 15
+    Forwarded URL = null
+   Redirected URL = null
+          Cookies = []
+Calling the tearDown() method from EventControllerTest.class ....
+]]></system-out>
+  </testcase>
+</testsuite>

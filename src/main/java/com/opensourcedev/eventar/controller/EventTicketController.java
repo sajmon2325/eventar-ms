@@ -58,13 +58,13 @@ public class EventTicketController {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(value = "/findAll", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Set<EventTicketDto>> findAllEventTickets(){
-        Set<EventTicketDto> eventTicketDtos = new HashSet<>();
+        Set<EventTicketDto> eventTickets = new HashSet<>();
         eventTicketDataProcessingService.findAllEventTickets().forEach(e -> {
             EventTicketDto eventTicket = eventTicketMapper.eventTicketToEventTicketDto(e);
-            eventTicketDtos.add(eventTicket);
+            eventTickets.add(eventTicket);
         });
 
-        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(eventTicketDtos);
+        return ResponseEntity.ok().contentType(MediaType.APPLICATION_JSON).body(eventTickets);
     }
 
 
@@ -136,7 +136,7 @@ public class EventTicketController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> persistEventTicket(@RequestBody @Validated EventTicketDto eventTicketDto, BindingResult result) {
+    public ResponseEntity<String> persistEventTicket( @Validated @RequestBody EventTicketDto eventTicketDto, BindingResult result) {
 
         EventTicket convertedEventTicket = eventTicketMapper.eventTicketDtoToEvent(eventTicketDto);
         EventTicket savedEventTicket = eventTicketDataProcessingService.saveEventTicket(convertedEventTicket);
