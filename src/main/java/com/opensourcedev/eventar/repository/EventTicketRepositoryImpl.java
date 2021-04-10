@@ -25,29 +25,29 @@ public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, St
     }
 
     @Override
-    public Optional<EventTicket> findById(String id) {
+    public Optional<EventTicket> findEntityById(String id) {
         return eventTicketRepository.findById(id);
     }
 
     @Override
-    public boolean existsById(String id) {
+    public boolean existsEntityById(String id) {
         return eventTicketRepository.findById(id).isPresent();
     }
 
     @Override
-    public Set<EventTicket> findAll() {
+    public Set<EventTicket> findAllEntities() {
         Set<EventTicket> eventTickets = new HashSet<>();
         eventTickets.addAll(eventTicketRepository.findAll());
         return eventTickets;
     }
 
     @Override
-    public long count() {
+    public long countEntities() {
         return eventTicketRepository.findAll().size();
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteEntityById(String id) {
         if (id != null && (eventTicketRepository.findById(id).isPresent())){
             eventTicketRepository.deleteById(id);
         }
@@ -56,7 +56,7 @@ public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, St
     }
 
     @Override
-    public void deleteAll() {
+    public void deleteAllEntities() {
         eventTicketRepository.deleteAll();
     }
 

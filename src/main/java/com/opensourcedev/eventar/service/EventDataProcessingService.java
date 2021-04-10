@@ -34,35 +34,35 @@ public class EventDataProcessingService {
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public Event findEventById(String id){
-        return eventRepository.findById(id).orElse(new Event());
+        return eventRepository.findEntityById(id).orElse(new Event());
     }
 
     @Transactional(readOnly = true, propagation = Propagation.NEVER, isolation = Isolation.REPEATABLE_READ)
     public boolean existByEventId(String id){
-        return eventRepository.existsById(id);
+        return eventRepository.existsEntityById(id);
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public Set<Event> findAllEvents(){
-        return eventRepository.findAll();
+        return eventRepository.findAllEntities();
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public long countEventsInDb(){
-        return eventRepository.count();
+        return eventRepository.countEntities();
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public void deleteByEventId(String id){
         if ((id != null) && (!id.isBlank()) && (!id.isEmpty())){
-            eventRepository.deleteById(id);
+            eventRepository.deleteEntityById(id);
         }
         // TODO throw here a custom exception regarding empty ID
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public void deletAllEvents(){
-        eventRepository.deleteAll();
+        eventRepository.deleteAllEntities();
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)

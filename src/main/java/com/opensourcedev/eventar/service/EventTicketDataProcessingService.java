@@ -32,35 +32,35 @@ public class EventTicketDataProcessingService {
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public EventTicket findEventTicketById(String id){
-        return eventTicketRepositoryImpl.findById(id).orElse(new EventTicket());
+        return eventTicketRepositoryImpl.findEntityById(id).orElse(new EventTicket());
     }
 
     @Transactional(readOnly = true, propagation = Propagation.NEVER, isolation = Isolation.REPEATABLE_READ)
     public boolean existEventTicketById(String id){
-        return eventTicketRepositoryImpl.existsById(id);
+        return eventTicketRepositoryImpl.existsEntityById(id);
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public Set<EventTicket> findAllEventTickets(){
-        return eventTicketRepositoryImpl.findAll();
+        return eventTicketRepositoryImpl.findAllEntities();
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public long countAllEventTicketsInDb(){
-        return eventTicketRepositoryImpl.count();
+        return eventTicketRepositoryImpl.countEntities();
     }
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public void deleteByEventTicketId(String id){
         if ((id != null) && (!id.isBlank()) && (!id.isEmpty())){
-            eventTicketRepositoryImpl.deleteById(id);
+            eventTicketRepositoryImpl.deleteEntityById(id);
         }
         // TODO throw here a custom exception regarding empty ID
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public void deleteAllEventTickets(){
-        eventTicketRepositoryImpl.deleteAll();
+        eventTicketRepositoryImpl.deleteAllEntities();
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)

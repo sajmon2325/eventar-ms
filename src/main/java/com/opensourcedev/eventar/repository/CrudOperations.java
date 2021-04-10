@@ -7,11 +7,11 @@ import java.util.Set;
 public interface CrudOperations<T, ID> {
 
     <S extends T> S saveEntity(S var1);
-    Optional<T> findById(ID var1);
-    boolean existsById(ID var1);
-    Set<T> findAll();
-    long count();
-    void deleteById(ID var1);
-    void deleteAll();
+    Optional<T> findEntityById(ID var1);
+    boolean existsEntityById(ID var1);
+    Set<T> findAllEntities();
+    long countEntities();
+    void deleteEntityById(ID var1);
+    void deleteAllEntities();
 
 }

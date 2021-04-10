@@ -31,29 +31,29 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
     }
 
     @Override
-    public Optional<Event> findById(String id) {
+    public Optional<Event> findEntityById(String id) {
         return eventRepository.findById(id);
     }
 
     @Override
-    public boolean existsById(String id) {
+    public boolean existsEntityById(String id) {
         return eventRepository.findById(id).isPresent();
     }
 
     @Override
-    public Set<Event> findAll() {
+    public Set<Event> findAllEntities() {
         Set<Event> events = new HashSet<>();
         events.addAll(eventRepository.findAll());
         return events;
     }
 
     @Override
-    public long count() {
+    public long countEntities() {
         return eventRepository.findAll().size();
     }
 
     @Override
-    public void deleteById(String id) {
+    public void deleteEntityById(String id) {
         if (id != null && (eventRepository.findById(id).isPresent())){
             eventRepository.deleteById(id);
         }
@@ -62,7 +62,7 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
     }
 
     @Override
-    public void deleteAll() {
+    public void deleteAllEntities() {
         eventRepository.deleteAll();
     }
 
