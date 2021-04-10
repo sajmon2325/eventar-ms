@@ -5,12 +5,14 @@ import org.hibernate.validator.constraints.Range;
 import javax.persistence.Entity;
 
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.PositiveOrZero;
 import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 import java.sql.Timestamp;
 
+@Table(name = "event_ticket")
 @Entity
 public class EventTicket extends BasicInformation{
 

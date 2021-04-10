@@ -2,7 +2,6 @@ package com.opensourcedev.eventar.service;
 
 import com.opensourcedev.eventar.model.EventTicket;
 import com.opensourcedev.eventar.repository.EventTicketRepositoryImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -19,70 +18,70 @@ import java.util.Set;
 @Scope(scopeName = WebApplicationContext.SCOPE_REQUEST, proxyMode = ScopedProxyMode.TARGET_CLASS)
 public class EventTicketDataProcessingService {
 
-    private final EventTicketRepositoryImpl eventTicketRepository;
+    private final EventTicketRepositoryImpl eventTicketRepositoryImpl;
 
     //TODO add AOP to check connection and add logs before and after the transaction happens
     //TODO create custom exceptions and throw them when something - happens  than catch those exceptions in advice methods
 
 
-    public EventTicketDataProcessingService(EventTicketRepositoryImpl eventTicketRepository) {
-        this.eventTicketRepository = eventTicketRepository;
+    public EventTicketDataProcessingService(EventTicketRepositoryImpl eventTicketRepositoryImpl) {
+        this.eventTicketRepositoryImpl = eventTicketRepositoryImpl;
     }
 
 
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public EventTicket findEventTicketById(String id){
-        return eventTicketRepository.findById(id).orElse(new EventTicket());
+        return eventTicketRepositoryImpl.findById(id).orElse(new EventTicket());
     }
 
     @Transactional(readOnly = true, propagation = Propagation.NEVER, isolation = Isolation.REPEATABLE_READ)
     public boolean existEventTicketById(String id){
-        return eventTicketRepository.existsById(id);
+        return eventTicketRepositoryImpl.existsById(id);
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public Set<EventTicket> findAllEventTickets(){
-        return eventTicketRepository.findAll();
+        return eventTicketRepositoryImpl.findAll();
     }
 
     @Transactional(readOnly = true, propagation = Propagation.SUPPORTS, isolation = Isolation.REPEATABLE_READ)
     public long countAllEventTicketsInDb(){
-        return eventTicketRepository.count();
+        return eventTicketRepositoryImpl.count();
     }
 
     @Transactional(readOnly = true, propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public void deleteByEventTicketId(String id){
         if ((id != null) && (!id.isBlank()) && (!id.isEmpty())){
-            eventTicketRepository.deleteById(id);
+            eventTicketRepositoryImpl.deleteById(id);
         }
         // TODO throw here a custom exception regarding empty ID
     }
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public void deleteAllEventTickets(){
-        eventTicketRepository.deleteAll();
+        eventTicketRepositoryImpl.deleteAll();
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
     public List<EventTicket> findEventTicketByHoldersName(String name){
-        return eventTicketRepository.findTicketsByHoldersName(name);
+        return eventTicketRepositoryImpl.findTicketsByHoldersName(name);
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
     public List<EventTicket> findEventTicketByHoldersSurName(String surname){
-        return eventTicketRepository.findTicketsByHoldersSurname(surname);
+        return eventTicketRepositoryImpl.findTicketsByHoldersSurname(surname);
     }
 
     @Transactional(readOnly = true, isolation = Isolation.REPEATABLE_READ)
     public List<EventTicket> findEventTicketByPrice(BigDecimal price){
-        return eventTicketRepository.findTicketsByPrice(price);
+        return eventTicketRepositoryImpl.findTicketsByPrice(price);
     }
 
 
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public EventTicket saveEventTicket(EventTicket eventTicket){
-        return eventTicketRepository.save(eventTicket);
+        return eventTicketRepositoryImpl.saveEntity(eventTicket);
     }
 
 }

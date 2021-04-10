@@ -19,7 +19,8 @@ public class BasicInformation {
     @Id
     @GeneratedValue(generator = "system-uuid")
     @GenericGenerator(name="system-uuid", strategy = "uuid")
-    private String privateEventId;
+    @Column(name = "private_id")
+    private String privateId;
 
     @CreationTimestamp
     @Column(name = "created_at", updatable = false)
@@ -39,8 +40,8 @@ public class BasicInformation {
     public BasicInformation() {
     }
 
-    public BasicInformation(String privateEventId, Timestamp createdAt, Timestamp updatedAt) {
-        this.privateEventId = privateEventId;
+    public BasicInformation(String privateId, Timestamp createdAt, Timestamp updatedAt) {
+        this.privateId = privateId;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
     }
@@ -48,12 +49,12 @@ public class BasicInformation {
 
 
 
-    public String getPrivateEventId() {
-        return privateEventId;
+    public String getPrivateId() {
+        return privateId;
     }
 
-    public void setPrivateEventId(String privateEventId) {
-        this.privateEventId = privateEventId;
+    public void setPrivateId(String privateEventId) {
+        this.privateId = privateEventId;
     }
 
     public Timestamp getCreatedAt() {

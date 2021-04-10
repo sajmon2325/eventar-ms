@@ -2,7 +2,6 @@ package com.opensourcedev.eventar.service;
 
 import com.opensourcedev.eventar.model.Event;
 import com.opensourcedev.eventar.repository.EventRepositoryImpl;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.stereotype.Service;
@@ -94,7 +93,7 @@ public class EventDataProcessingService {
     
     @Transactional(propagation = Propagation.REQUIRED, isolation = Isolation.REPEATABLE_READ)
     public Event saveEvent(Event event){
-        return eventRepository.save(event);
+        return eventRepository.saveEntity(event);
     }
 
 }

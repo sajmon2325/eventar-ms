@@ -6,20 +6,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import java.math.BigDecimal;
 import java.util.*;
 
-
 public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, String> {
 
-    @Autowired
     private EventTicketRepository eventTicketRepository;
 
-
-    public EventTicketRepositoryImpl() {}
-
-
-
+    public EventTicketRepositoryImpl() {
+    }
 
     @Override
-    public EventTicket save(EventTicket eventTicket) {
+    public EventTicket saveEntity(EventTicket eventTicket) {
         if (eventTicket != null){
             eventTicketRepository.save(eventTicket);
             return eventTicket;
@@ -80,5 +75,8 @@ public class EventTicketRepositoryImpl implements CrudOperations<EventTicket, St
     }
 
 
-
+    @Autowired
+    public void setEventTicketRepositoryl(EventTicketRepository eventTicketRepositoryl) {
+        this.eventTicketRepository = eventTicketRepositoryl;
+    }
 }

@@ -20,7 +20,7 @@ public class EventRepositoryImpl implements CrudOperations<Event, String> {
 
 
     @Override
-    public Event save(Event event) {
+    public Event saveEntity(Event event) {
         if(event != null){
             eventRepository.save(event);
             return event;

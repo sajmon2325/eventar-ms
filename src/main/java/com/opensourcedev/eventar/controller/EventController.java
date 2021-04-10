@@ -151,7 +151,7 @@ public class EventController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(value = "/save", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<String> persistEvent( @Validated @RequestBody EventDto eventDto, BindingResult result) {
+    public ResponseEntity<String> persistEvent( @RequestBody @Validated  EventDto eventDto, BindingResult result) {
         Event convertedEvent = eventMapper.eventDtoToEvent(eventDto);
         Event savedEvent = eventDataProcessingService.saveEvent(convertedEvent);
 

@@ -1,21 +1,23 @@
 package com.opensourcedev.eventar.model;
 
 
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.*;
 import java.sql.Timestamp;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Table(name = "event")
 @Entity
 public class Event extends BasicInformation{
 
     @NotBlank
-    @Size(min = 10, max = 50)
+    @Size(min = 5, max = 50)
+    @Column(name = "event_name")
     private String eventName;
 
     @NotBlank
+    @Column(name = "event_id")
     private String eventId;
 
     @NotBlank
@@ -26,12 +28,14 @@ public class Event extends BasicInformation{
     private LocalDateTime time;
 
     @Positive
+    @Column(name = "event_capacity")
     private Integer eventCapacity;
 
     @PositiveOrZero
+    @Column(name = "event_occupation")
     private Integer eventOccupation;
 
-    @OneToMany(mappedBy = "event")
+    @OneToMany(mappedBy = "event", cascade = CascadeType.PERSIST)
     private List<EventTicket>  tickets;
 
 

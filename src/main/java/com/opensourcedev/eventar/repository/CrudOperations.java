@@ -6,7 +6,7 @@ import java.util.Set;
 
 public interface CrudOperations<T, ID> {
 
-    <S extends T> S save(S var1);
+    <S extends T> S saveEntity(S var1);
     Optional<T> findById(ID var1);
     boolean existsById(ID var1);
     Set<T> findAll();
